@@ -1,14 +1,12 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 const DotGridBackground = ({
     dotColor = '#ffffff65',
-    hoverColor = '#9D00FF',
     dotSize = 1.4,
     dotIntensity = 4
 }) => {
     const canvasRef = useRef(null);
-    const [hoverPosition, setHoverPosition] = useState(null);
     const dotsRef = useRef([]);
 
     // Initialize dots on mount and resize
@@ -49,46 +47,25 @@ const DotGridBackground = ({
         dotsRef.current = dots;
     };
 
-    // Draw all dots with hover effect
+    // Draw all dots
     const drawDots = () => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         dotsRef.current.forEach(dot => {
-            const isHovered = hoverPosition &&
-                Math.sqrt((dot.x - hoverPosition.x) ** 2 + (dot.y - hoverPosition.y) ** 2) < 160;
-
             ctx.beginPath();
             ctx.arc(dot.x, dot.y, dotSize, 0, Math.PI * 2);
-            ctx.fillStyle = isHovered ? hoverColor : dotColor;
+            ctx.fillStyle = dotColor;
             ctx.fill();
         });
     };
 
-    // Handle mouse movement
-    const handleMouseMove = (e) => {
-        const canvas = canvasRef.current;
-        const rect = canvas.getBoundingClientRect();
-        setHoverPosition({
-            x: e.clientX - rect.left,
-            y: e.clientY - rect.top
-        });
-        requestAnimationFrame(drawDots);
-    };
-
-    // Handle mouse leave
-    const handleMouseLeave = () => {
-        setHoverPosition(null);
-        requestAnimationFrame(drawDots);
-    };
 
     return (
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }}>
             <canvas
                 ref={canvasRef}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
                 style={{ width: '100%', height: '100%' }}
             />
         </div>
@@ -97,7 +74,6 @@ const DotGridBackground = ({
 
 DotGridBackground.propTypes = {
     dotColor: PropTypes.string,
-    hoverColor: PropTypes.string,
     dotSize: PropTypes.number,
     dotIntensity: PropTypes.number
 };
