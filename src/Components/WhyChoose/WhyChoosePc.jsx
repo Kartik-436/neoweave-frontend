@@ -245,49 +245,49 @@ const WhyChoosePc = () => {
             opacity: 0,
             ease: "power1.inOut",
             duration: 0.1
-        }, 2)
+        }, 1)
 
         tl.to(GE5.current, {
             y: 50,
             opacity: 0,
             ease: "power1.inOut",
             duration: 0.1
-        }, 2)
+        }, 1)
 
         tl.to(GE6.current, {
             y: 50,
             opacity: 0,
             ease: "power1.inOut",
             duration: 0.1
-        }, 2)
+        }, 1)
 
         tl.to(GE7.current, {
             y: 50,
             opacity: 0,
             ease: "power1.inOut",
             duration: 0.1
-        }, 2)
+        }, 1)
 
         tl.to(Grid2.current, {
             y: -390,
             scale: 2.3,
             ease: "power4.inOut",
             // duration: 0.08
-        }, 2)
+        }, 1)
 
         tl.to(GE2.current, {
             y: 50,
             opacity: 0,
             ease: "power1.inOut",
             duration: 0.1
-        }, 3)
+        }, 1.5)
 
         tl.to(GE4.current, {
             y: 50,
             opacity: 0,
             ease: "power1.inOut",
             duration: 0.1
-        }, 3)
+        }, 1.5)
 
         tl.to(Grid2.current, {
             y: -530,
@@ -295,14 +295,14 @@ const WhyChoosePc = () => {
             scaleY: 3.5,
             ease: "power4.inOut",
             // duration: 0.08
-        }, 4)
+        }, 2)
 
         tl.to(Grid2.current, {
             scale: 0,
             display: "none",
             ease: "power4.inOut",
             // duration: 0.08
-        }, 5)
+        }, 3)
 
     }, [])
 
@@ -529,7 +529,7 @@ const WhyChoosePc = () => {
             </div>
 
             <div className='w-full h-full inset-0 absolute z-0'>
-                <DotGridBackground dotColor="#ffffff50" hoverColor="#9D00FF" dotSize={1.5} dotIntensity={3.85} />
+                <DotGridBackground dotColor="#a7a7a770" hoverColor="#a200ff99" dotSize={1.5} dotIntensity={3.85} />
             </div>
 
         </div>
