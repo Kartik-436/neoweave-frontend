@@ -10,7 +10,7 @@ const EndPage = () => {
             </div>
 
             <div className='w-full h-full inset-0 absolute z-0'>
-                <DotGridBackground dotColor="#ffffff50" hoverColor="#9D00FF" dotSize={1.5} dotIntensity={3.85} />
+                <DotGridBackground dotColor="#ffffff65" hoverColor="#9D00FF" dotSize={0.8} dotIntensity={4.5} />
             </div>
         </div>
     )

@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const DotGridBackground = ({
-    dotColor = '#ffffff50',
+    dotColor = '#ffffff65',
     hoverColor = '#9D00FF',
     dotSize = 1.4,
     dotIntensity = 4

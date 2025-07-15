@@ -76,7 +76,7 @@ import DotGridBackground from '../ui/dotGridBackground';
 //                 <DotGrid
 //                     dotSize={2.5}
 //                     gap={26}
-//                     baseColor="#ffffff50"
+//                     baseColor="#ffffff65"
 //                     activeColor="#9D00FF"
 //                     proximity={150}
 //                     shockRadius={300}
@@ -138,7 +138,7 @@ function BentoGridDemo() {
             </div>
 
             <div className='w-full h-full inset-0 absolute z-0'>
-                <DotGridBackground dotColor="#ffffff50" hoverColor="#9D00FF" dotSize={1.5} dotIntensity={3.85} />
+                <DotGridBackground dotColor="#ffffff65" hoverColor="#9D00FF" dotSize={0.8} dotIntensity={4.5} />
             </div>
 
         </div>

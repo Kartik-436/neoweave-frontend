@@ -177,7 +177,7 @@ const ThemeChange = () => {
             <InfiniteScroller />
 
             <div className='w-full h-full inset-0 absolute z-0'>
-                <DotGridBackground dotColor="#eea21580" hoverColor="#9D00FF" dotSize={1.5} dotIntensity={3.85} />
+                <DotGridBackground dotColor="#eea21599" hoverColor="#9D00FF" dotSize={0.9} dotIntensity={4.5} />
             </div>
         </div>
     )

@@ -522,7 +522,7 @@ const WhyChoosePc = () => {
             </div>
 
             <div className='w-full h-full inset-0 absolute z-0'>
-                <DotGridBackground dotColor="#a7a7a770" hoverColor="#a200ff99" dotSize={1.5} dotIntensity={3.85} />
+                <DotGridBackground dotColor="#ffffff65" hoverColor="#9d0ff" dotSize={0.8} dotIntensity={4.5} />
             </div>
 
         </div>

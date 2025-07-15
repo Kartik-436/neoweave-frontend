@@ -38,7 +38,7 @@ export default function Page2() {
         <div className="md:min-h-screen  bg-[#09090b] text-white relative p-30 mb-[20vh] flex flex-col items-center">
 
             <div className='w-full h-full inset-0 absolute z-0'>
-                <DotGridBackground dotColor="#ffffff50" hoverColor="#9D00FF" dotSize={1.5} dotIntensity={3.85} />
+                <DotGridBackground dotColor="#ffffff65" hoverColor="#9D00FF" dotSize={0.8} dotIntensity={4.5} />
             </div>
 
             {/* <div className='absolute top-0 inset-0 left-0 h-full'>
