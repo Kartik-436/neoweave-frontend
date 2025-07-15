@@ -9,12 +9,10 @@ const PricingPage = () => {
             <div>
                 <PricingTabs />
                 <div className='w-full h-full inset-0 absolute z-0'>
-                    <DotGrid
+                    <DotGridBackground
                         dotSize={0.8}
-                        gap={20}
-                        baseColor="#ffffff65"
-                        activeColor="#9D00FF"
-                        proximity={170}
+                        dotColor="#ffffff65"
+                        dotIntensity={4}
                     />
                 </div>
             </div>
