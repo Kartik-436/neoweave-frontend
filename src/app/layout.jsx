@@ -28,7 +28,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "GitFund",
+  title: "Neoweave",
   description: "Get money through open source",
 };
 
