@@ -10,7 +10,7 @@ const PricingPage = () => {
                 <PricingTabs />
                 <div className='w-full h-full inset-0 absolute z-0'>
                     <DotGrid
-                        dotSize={2}
+                        dotSize={0.8}
                         gap={20}
                         baseColor="#ffffff65"
                         activeColor="#9D00FF"

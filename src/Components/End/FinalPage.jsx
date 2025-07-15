@@ -188,18 +188,16 @@ const FinalPage = () => {
                     <div ref={Notiref2} className='bg-[#09090b] h-[54vh] w-[90vw] md:w-[80vw] rounded-full z-50'>
                         <div className='w-full h-full inset-0 absolute z-0'>
                             {/* <DotGrid
-                                dotSize={2}
+                                dotSize={0.8}
                                 gap={20}
                                 baseColor="#ffffff65"
                                 activeColor="#9D00FF"
                                 proximity={170}
                             /> */}
-                            <DotGrid
-                                dotSize={2}
-                                gap={20}
-                                baseColor="#ffffff65"
-                                activeColor="#9D00FF"
-                                proximity={170}
+                            <DotGridBackground
+                                dotSize={0.8}
+                                dotColor="#ffffff65"
+                                dotIntensity={4}
                             />
                         </div>
                     </div>
@@ -233,19 +231,10 @@ const FinalPage = () => {
 
             {/* Background DotGrid */}
             <div className='w-full h-full inset-0 absolute z-0'>
-                {/*                 <DotGrid
-                    dotSize={2}
-                    gap={20}
-                    baseColor="#eea21580"
-                    activeColor="#9D00FF"
-                    proximity={170}
-                /> */}
-                <DotGrid
-                    dotSize={2}
-                    gap={20}
-                    baseColor="#eea21580"
-                    activeColor="#9D00FF"
-                    proximity={170}
+                <DotGridBackground
+                    dotSize={0.8}
+                    dotColor="#eea215"
+                    dotIntensity={4}
                 />
             </div>
         </div>

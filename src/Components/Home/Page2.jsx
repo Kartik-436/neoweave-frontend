@@ -39,12 +39,10 @@ export default function Page2() {
         <div className="md:min-h-screen  bg-[#09090b] text-white relative p-30 mb-[20vh] flex flex-col items-center">
 
             <div className='w-full h-full inset-0 absolute z-0'>
-                <DotGrid
-                    dotSize={2}
-                    gap={20}
-                    baseColor="#ffffff65"
-                    activeColor="#9D00FF"
-                    proximity={170}
+                <DotGridBackground
+                    dotSize={0.8}
+                    dotColor="#ffffff65"
+                    dotIntensity={4}
                 />
             </div>
 
