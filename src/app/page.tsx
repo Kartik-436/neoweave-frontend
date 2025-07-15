@@ -10,12 +10,14 @@ import NavBar3 from '@/Components/NavBar/NavBar3';
 import MaskedPage from "@/Components/Home/PortalReveal";
 import Footer from "@/Components/Footer/Footerpage";
 import { ThemeProvider } from '@/Components/End/ThemeChangeContext';
+import { ParticleTextEffect } from "../Components/ui/PreloadingPage";
 
 export default function Home() {
   return (
     <SmoothScroll>
       <ThemeProvider>
         <div id="CompleteHomePage" className="bg-[#09090b] w-full min-h-screen overflow-hidden relative">
+          <ParticleTextEffect />
           <NavBar3 />
           <MaskedPage />
           <BountiesSection />
