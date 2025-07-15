@@ -297,13 +297,6 @@ const WhyChoosePc = () => {
             // duration: 0.08
         }, 2)
 
-        tl.to(Grid2.current, {
-            scale: 0,
-            display: "none",
-            ease: "power4.inOut",
-            // duration: 0.08
-        }, 3)
-
     }, [])
 
     return (
