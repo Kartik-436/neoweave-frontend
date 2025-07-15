@@ -129,7 +129,7 @@ interface ParticleTextEffectProps {
 
 const DEFAULT_WORDS = ["Hello", "Welcome", "to", "NEOWEAVE"]
 // Delays: before 1st word, before 2nd, before 3rd, before 4th, and after 4th (before blast)
-const DEFAULT_DELAYS = [2000, 4000, 2000, 1700, 5300]
+const DEFAULT_DELAYS = [1300, 2700, 2000, 1700, 5300]
 
 
 export function ParticleTextEffect({
