@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import Page2 from './Page2';
 import Page1 from './GradientSemiCircle';
 import Particles from './particle';
+import { useThemeChange } from '../End/ThemeChangeContext';
 gsap.registerPlugin(ScrollTrigger);
 
 const MaskedPage = () => {
@@ -18,6 +19,8 @@ const MaskedPage = () => {
     const particlesRef = useRef(null);
     const Textref1 = useRef(null);
     const Textref2 = useRef(null);
+
+    const { isThemeDark, setIsThemeDark, isLoaded, setIsLoaded } = useThemeChange();
 
     useEffect(() => {
         // const loadTl = gsap.timeline();
@@ -147,12 +150,12 @@ const MaskedPage = () => {
 
                 <div className='body fixed top-0 -z-10'>
                     <div style={{ perspective: "2000px" }} ref={containerRef2} className="relative w-full h-screen flex items-center justify-center overflow-hidden">
-                        <motion.div
+                        {isLoaded && (<motion.div
                             ref={Sphere}
                             id='SPHERE'
-                            // initial={{ y: 500, opacity: 0, scale: 0.5 }}
-                            // animate={{ y: 0, opacity: 1, scale: 1 }}
-                            // transition={{ duration: 1.2, ease: "easeOut" }}
+                            initial={{ y: 500, opacity: 0, scale: 0.5 }}
+                            animate={{ y: 0, opacity: 1, scale: 1 }}
+                            transition={{ duration: 1.2, ease: "easeOut" }}
                             className='relative w-full z-50 h-screen flex items-end justify-center pointer-events-none'
                         >
                             <div className="absolute top-[57%] w-[1034px] h-[1000px] rounded-full bg-[#4F46E5] border-2 border-[#4F46E5] z-10 blur-2xl " />
@@ -161,7 +164,7 @@ const MaskedPage = () => {
                             <div className="absolute top-[48%] w-[1020px] h-[1020px] rounded-full bg-[#A78BFA]" />
                             <div className="absolute top-[48%] w-[1010px] h-[1000px] rounded-full z-50 bg-transparent border-8 border-[#A78BFA]/50 blur-[1px]" />
                             <div className='absolute top-[84%] w-[1300px] h-[800px] rounded-full bg-black z-20 blur-[100px]'></div>
-                        </motion.div>
+                        </motion.div>)}
                         <div className='absolute bg-[#4f46e5]/60 h-20 w-80 z-50 bottom-33 blur-[80px]'></div>
                         <div className='h-[25vh] rounded-full w-[66vw] bottom-60 absolute bg-[#4f46e5]/40 blur-[110px] pointer-events-none'></div>
                         <div className='h-[30vh] rounded-full w-[50vw] bottom-30 left-50 absolute bg-[#4f46e5]/40 blur-[110px] pointer-events-none'></div>
@@ -185,11 +188,11 @@ const MaskedPage = () => {
                             <p className='md:text-[1.6vw] text-[4.6vw] text-[#ffffff] font-[inter]'>Let&apos;s build the future of software—together.</p>
                         </div>
 
-                        <motion.div
+                        {isLoaded && (<motion.div
                             ref={contentRef}
-                            // initial={{ y: -200, opacity: 0 }}
-                            // animate={{ y: 0, opacity: 1 }}
-                            // transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
+                            initial={{ y: -200, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
                             className="flex mt-6 flex-col gap-5 text-white absolute top-54 md:top-35 z-50 items-center justify-center pointer-events-none"
                         >
                             <div className='backdrop-blur bg-white/10 rounded-full px-4 py-2'>
@@ -199,12 +202,9 @@ const MaskedPage = () => {
                                 Earn Crypto by Solving <br /> Open Source
                             </div>
 
-                        </motion.div>
+                        </motion.div>)}
                     </div>
                 </div>
-
-
-
             </main >
         </>
     );
