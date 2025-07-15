@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion } from 'framer-motion';
 import DotGridBackground from '../ui/dotGridBackground';
+import DotGrid from './../ui/dotgridreactive';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -186,7 +187,20 @@ const FinalPage = () => {
                 <div ref={Notiref1} className='bg-transparent h-[60vh] w-[90vw] md:w-[80vw] flex items-start justify-center rounded-full border-2 border-[#dbcaab]'>
                     <div ref={Notiref2} className='bg-[#09090b] h-[54vh] w-[90vw] md:w-[80vw] rounded-full z-50'>
                         <div className='w-full h-full inset-0 absolute z-0'>
-                            <DotGridBackground dotColor="#ffffff65" hoverColor="#9D00FF" dotSize={0.8} dotIntensity={4.5} />
+                            {/* <DotGrid
+                                dotSize={2}
+                                gap={20}
+                                baseColor="#ffffff65"
+                                activeColor="#9D00FF"
+                                proximity={170}
+                            /> */}
+                            <DotGrid
+                                dotSize={2}
+                                gap={20}
+                                baseColor="#ffffff65"
+                                activeColor="#9D00FF"
+                                proximity={170}
+                            />
                         </div>
                     </div>
                 </div>
@@ -219,7 +233,20 @@ const FinalPage = () => {
 
             {/* Background DotGrid */}
             <div className='w-full h-full inset-0 absolute z-0'>
-                <DotGridBackground dotColor="#eea21599" hoverColor="#9D00FF" dotSize={0.9} dotIntensity={4.5} />
+                {/*                 <DotGrid
+                    dotSize={2}
+                    gap={20}
+                    baseColor="#eea21580"
+                    activeColor="#9D00FF"
+                    proximity={170}
+                /> */}
+                <DotGrid
+                    dotSize={2}
+                    gap={20}
+                    baseColor="#eea21580"
+                    activeColor="#9D00FF"
+                    proximity={170}
+                />
             </div>
         </div>
     );

@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import gsap from 'gsap';
 import Image from 'next/image';
 import DotGridBackground from '../ui/dotGridBackground';
+import DotGrid from '../ui/dotgridreactive';
 
 const PurpleSphere = ({   // Default left position
     width = '200px',    // Default width
@@ -177,7 +178,13 @@ const ThemeChange = () => {
             <InfiniteScroller />
 
             <div className='w-full h-full inset-0 absolute z-0'>
-                <DotGridBackground dotColor="#eea21599" hoverColor="#9D00FF" dotSize={0.9} dotIntensity={4.5} />
+                <DotGrid
+                    dotSize={2}
+                    gap={20}
+                    baseColor="#eea21580"
+                    activeColor="#9D00FF"
+                    proximity={170}
+                />
             </div>
         </div>
     )

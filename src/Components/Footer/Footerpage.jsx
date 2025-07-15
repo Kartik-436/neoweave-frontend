@@ -2,6 +2,7 @@
 import React from 'react'
 import Lanyard from './Lanyard';
 import DotGridBackground from '../ui/dotGridBackground';
+import DotGrid from '../ui/dotgridreactive';
 
 const PurpleSphere = ({   // Default left position
     width = '200px',    // Default width
@@ -96,7 +97,13 @@ const Footer = () => {
             </div>
 
             <div className='w-full h-full inset-0 absolute z-0'>
-                <DotGridBackground dotColor="#eea21599" hoverColor="#9D00FF" dotSize={0.9} dotIntensity={4.5} />
+                <DotGrid
+                    dotSize={2}
+                    gap={20}
+                    baseColor="#eea21580"
+                    activeColor="#9D00FF"
+                    proximity={170}
+                />
             </div>
         </div>
     )
