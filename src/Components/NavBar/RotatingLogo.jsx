@@ -34,7 +34,7 @@ const NeowareLogo = ({ width = 100, height = 100, size = 1, speed = 0.01, direct
 
     return (
         <div style={{ width, height, position: 'relative' }}>
-            {!isLoaded && (
+            {/* {!isLoaded && (
                 <div style={{ position: 'absolute', width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <img
                         src="/NeowareLogo2.png"
@@ -42,25 +42,25 @@ const NeowareLogo = ({ width = 100, height = 100, size = 1, speed = 0.01, direct
                         style={{ maxWidth: '70%', maxHeight: '70%', objectFit: 'contain' }}
                     />
                 </div>
-            )}
-            {
-                isLoaded && (
-                    <>
-                        <Canvas camera={{ position: [0, 0, 3] }} gl={{ preserveDrawingBuffer: true }}>
-                            <ambientLight intensity={1} />
-                            <directionalLight position={[2, 2, 5]} intensity={1.5} />
-                            <Suspense fallback={null}>
-                                <RotatingLogo
-                                    size={size}
-                                    speed={speed}
-                                    direction={direction}
-                                    onLoad={() => setIsLoaded(true)}
-                                />
-                            </Suspense>
-                        </Canvas>
-                    </>
-                )
-            }
+            )} */}
+            {/* {
+                isLoaded && ( */}
+            <>
+                <Canvas camera={{ position: [0, 0, 3] }} gl={{ preserveDrawingBuffer: true }}>
+                    <ambientLight intensity={1} />
+                    <directionalLight position={[2, 2, 5]} intensity={1.5} />
+                    <Suspense fallback={null}>
+                        <RotatingLogo
+                            size={size}
+                            speed={speed}
+                            direction={direction}
+                            onLoad={() => setIsLoaded(true)}
+                        />
+                    </Suspense>
+                </Canvas>
+            </>
+            {/* )
+            } */}
 
         </div>
     );
