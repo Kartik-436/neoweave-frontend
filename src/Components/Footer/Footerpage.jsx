@@ -1,6 +1,7 @@
 "use client";
 import React from 'react'
 import Lanyard from './Lanyard';
+import DotGridBackground from '../ui/dotGridBackground';
 
 const PurpleSphere = ({   // Default left position
     width = '200px',    // Default width
@@ -76,10 +77,6 @@ const Footer = () => {
                 <div className='w-[90vw] md:h-[0.15vh] h-[0.2vh] bg-[#09090b] absolute top-[0.4px] left-[4.7vw]'></div>
             </div>
 
-            <div>
-
-            </div>
-
             <div className='absolute right-0 w-[30vw] top-[-30vh] h-screen hidden md:flex items-end z-50 justify-end'>
                 <Lanyard position={[0, 0, 22]} gravity={[0, -60, 0]} />
             </div>
@@ -96,11 +93,10 @@ const Footer = () => {
                 <h1 style={{ fontFamily: 'var(--font-cypher)' }} className='text-black text-[18vw] z-50 font-bold text-center w-full scale-y-150'>neoweave</h1>
                 {/*parkinsans, Barlow, Montserrat, Raleway, */}
 
-                {/* <Image alt="Font Image" src="/gitlogo.svg" width={2000} height={2000} /> */}
             </div>
 
-            <div className="relative h-[700px]  w-full  overflow-hidden border">
-
+            <div className='w-full h-full inset-0 absolute z-0'>
+                <DotGridBackground dotColor="#eea21580" hoverColor="#9D00FF" dotSize={1.5} dotIntensity={3.85} />
             </div>
         </div>
     )

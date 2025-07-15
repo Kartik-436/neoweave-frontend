@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import DotGridBackground from '../ui/dotGridBackground';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -153,8 +154,8 @@ const MobileWhyChoose = () => {
                 </div>
             </div>
 
-            <div className='absolute inset-0 w-full h-full min-h-screen z-0'>
-                
+            <div className='w-full h-full inset-0 absolute z-0'>
+                <DotGridBackground dotColor="#ffffff50" hoverColor="#9D00FF" dotSize={1.5} dotIntensity={3.85} />
             </div>
         </div>
     );

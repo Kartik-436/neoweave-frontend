@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { Icon } from '@iconify/react';
+import DotGridBackground from '../ui/dotGridBackground';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -244,49 +245,49 @@ const WhyChoosePc = () => {
             opacity: 0,
             ease: "power1.inOut",
             duration: 0.1
-        }, 1)
+        }, 2)
 
         tl.to(GE5.current, {
             y: 50,
             opacity: 0,
             ease: "power1.inOut",
             duration: 0.1
-        }, 1)
+        }, 2)
 
         tl.to(GE6.current, {
             y: 50,
             opacity: 0,
             ease: "power1.inOut",
             duration: 0.1
-        }, 1)
+        }, 2)
 
         tl.to(GE7.current, {
             y: 50,
             opacity: 0,
             ease: "power1.inOut",
             duration: 0.1
-        }, 1)
+        }, 2)
 
         tl.to(Grid2.current, {
             y: -390,
             scale: 2.3,
             ease: "power4.inOut",
             // duration: 0.08
-        }, 1)
+        }, 2)
 
         tl.to(GE2.current, {
             y: 50,
             opacity: 0,
             ease: "power1.inOut",
             duration: 0.1
-        }, 1.5)
+        }, 3)
 
         tl.to(GE4.current, {
             y: 50,
             opacity: 0,
             ease: "power1.inOut",
             duration: 0.1
-        }, 1.5)
+        }, 3)
 
         tl.to(Grid2.current, {
             y: -530,
@@ -294,7 +295,14 @@ const WhyChoosePc = () => {
             scaleY: 3.5,
             ease: "power4.inOut",
             // duration: 0.08
-        }, 2)
+        }, 4)
+
+        tl.to(Grid2.current, {
+            scale: 0,
+            display: "none",
+            ease: "power4.inOut",
+            // duration: 0.08
+        }, 5)
 
     }, [])
 
@@ -328,7 +336,7 @@ const WhyChoosePc = () => {
                 </div>
             </div>
 
-            <div ref={Container} style={{ perspective: "1000px" }} className='absolute top-23 md:top-63'>
+            <div ref={Container} style={{ perspective: "1000px" }} className='absolute top-23 md:top-63 z-10'>
                 <div style={{ perspective: "1000px" }} className="grid-fade-wrapper">
                     <div ref={Grid} className='bg-[#0F1013] h-[60vh] md:h-[110vh] w-[80vw] md:w-[58vw] border-2 border-[#bebebe27] rounded-xl grid gap-1.5 p-1 grid-cols-5 grid-rows-5 rotate-x-[55deg]'>
 
@@ -435,7 +443,7 @@ const WhyChoosePc = () => {
                 </div>
             </div>
 
-            <div ref={Container2} style={{ perspective: "1000px" }} className='absolute top-23 md:top-63'>
+            <div ref={Container2} style={{ perspective: "1000px" }} className='absolute z-10 top-23 md:top-63'>
                 <div style={{ perspective: "1000px" }} className="grid-fade-wrapper2">
                     <div ref={Grid2} className='bg-transparent h-[60vh] md:h-[110vh] w-[80vw] md:w-[58vw] rounded-xl grid gap-1.5 p-1 grid-cols-5 grid-rows-5 rotate-x-[55deg]'>
 
@@ -518,6 +526,10 @@ const WhyChoosePc = () => {
                         <div className=''></div>
                     </div>
                 </div>
+            </div>
+
+            <div className='w-full h-full inset-0 absolute z-0'>
+                <DotGridBackground dotColor="#ffffff50" hoverColor="#9D00FF" dotSize={1.5} dotIntensity={3.85} />
             </div>
 
         </div>

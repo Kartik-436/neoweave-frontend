@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import clsx from 'clsx';
 import gsap from 'gsap';
 import Image from 'next/image';
+import DotGridBackground from '../ui/dotGridBackground';
 
 const PurpleSphere = ({   // Default left position
     width = '200px',    // Default width
@@ -176,7 +177,7 @@ const ThemeChange = () => {
             <InfiniteScroller />
 
             <div className='w-full h-full inset-0 absolute z-0'>
-
+                <DotGridBackground dotColor="#eea21580" hoverColor="#9D00FF" dotSize={1.5} dotIntensity={3.85} />
             </div>
         </div>
     )

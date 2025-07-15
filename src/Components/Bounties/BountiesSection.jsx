@@ -14,6 +14,7 @@ import {
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { FlickeringGrid } from '../ui/flickering-grid';
+import DotGridBackground from '../ui/dotGridBackground';
 // const BountiesSection = () => {
 //     const items = [
 //         {
@@ -136,7 +137,9 @@ function BentoGridDemo() {
                 </div>
             </div>
 
-
+            <div className='w-full h-full inset-0 absolute z-0'>
+                <DotGridBackground dotColor="#ffffff50" hoverColor="#9D00FF" dotSize={1.5} dotIntensity={3.85} />
+            </div>
 
         </div>
     );
