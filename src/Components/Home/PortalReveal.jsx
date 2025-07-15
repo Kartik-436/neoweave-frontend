@@ -3,12 +3,11 @@
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Page2 from './Page2';
 import Page1 from './GradientSemiCircle';
 import Particles from './particle';
 import { useThemeChange } from '../End/ThemeChangeContext';
-
 gsap.registerPlugin(ScrollTrigger);
 
 const MaskedPage = () => {
@@ -22,114 +21,123 @@ const MaskedPage = () => {
     const Textref2 = useRef(null);
 
     const { isThemeDark, setIsThemeDark, isLoaded, setIsLoaded } = useThemeChange();
-    const sphereControls = useAnimation();
-    const contentControls = useAnimation();
 
     useEffect(() => {
-        const setupAnimations = async () => {
-            if (isLoaded) {
-                // Start initial animations with Framer Motion
-                await Promise.all([
-                    sphereControls.start({ y: 0, opacity: 1, scale: 0.6 }),
-                    contentControls.start({ y: 0, opacity: 1 })
-                ]);
+        // const loadTl = gsap.timeline();
 
-                // Now that initial animations are complete, set up ScrollTrigger
-                const tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: containerRef.current,
-                        start: 'top top',
-                        end: '+=4000',
-                        scrub: 1,
-                        pin: true,
-                    },
-                });
+        // loadTl.fromTo(Sphere.current, {
+        //     y: 500,
+        //     opacity: 0,
+        //     scale: 0.5
+        // }, {
+        //     y: 0,
+        //     opacity: 1,
+        //     scale: 1,
+        //     duration: 1.2,
+        //     ease: "power3.out"
+        // });
 
-                // Add your GSAP scroll animations here
-                tl.to(contentRef.current, {
-                    y: -500,
-                    rotateX: -50,
-                }, "0.3")
+        // loadTl.fromTo(contentRef.current, {
+        //     y: -200,
+        //     opacity: 0
+        // }, {
+        //     y: 0,
+        //     opacity: 1,
+        //     duration: 1,
+        //     ease: "power3.out"
+        // }, "-=0.8");
 
-                tl.to(Sphere.current, {
-                    y: -100,
-                    x: -200,
-                    rotate: 90,
-                    scale: 1.2,
-                    z: 100,
-                    zIndex: 55,
-                    duration: 0.2,
-                }, "0.3")
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: 'top top',
+                end: '+=4000', // adjust based on how much scroll you want
+                scrub: 1,
+                pin: true,
+            },
+        });
 
-                tl.fromTo(Textref1.current,
-                    {
-                        opacity: 0,
-                        x: 50
-                    }, {
-                    opacity: 1,
-                    x: 0
-                }, "0.5")
+        tl.to(contentRef.current, {
+            y: -500,
+            rotateX: -50,
+        }, "0.3")
+
+        tl.to(Sphere.current, {
+            y: -100,
+            x: -200,
+            rotate: 90,
+            scale: 1.2,
+            z: 100,
+            zIndex: 55,
+            duration: 0.2,
+        }, "0.3")
+
+        tl.fromTo(Textref1.current,
+            {
+                opacity: 0,
+                x: 50
+            }, {
+            opacity: 1,
+            x: 0
+        }, "0.5")
 
 
-                tl.to(Sphere.current, {
-                    y: -50,
-                    x: 170,
-                    rotate: -90,
-                    scale: 0.8,
-                    z: 100,
-                    zIndex: 55,
-                    duration: 0.5,
-                }, "2")
+        tl.to(Sphere.current, {
+            y: -50,
+            x: 170,
+            rotate: -90,
+            scale: 0.8,
+            z: 100,
+            zIndex: 55,
+            duration: 0.5,
+        }, "2")
 
-                tl.to(Textref1.current, {
-                    opacity: 0
-                }, "1.7")
+        tl.to(Textref1.current, {
+            opacity: 0
+        }, "1.7")
 
-                tl.fromTo(Textref2.current,
-                    {
-                        opacity: 0,
-                        x: -50
-                    }, {
-                    opacity: 1,
-                    x: 0
-                }, "2.2")
+        tl.fromTo(Textref2.current,
+            {
+                opacity: 0,
+                x: -50
+            }, {
+            opacity: 1,
+            x: 0
+        }, "2.2")
 
-                tl.to(Sphere.current, {
-                    y: 60,
-                    x: 0,
-                    rotate: 0,
-                    scale: 0.2,
-                    z: 100,
-                    zIndex: 55,
-                }, "3.5")
+        tl.to(Sphere.current, {
+            y: 60,
+            x: 0,
+            rotate: 0,
+            scale: 0.2,
+            z: 100,
+            zIndex: 55,
+        }, "3.5")
 
-                tl.to(Textref2.current, {
-                    opacity: 0
-                }, "3.5")
+        tl.to(Textref2.current, {
+            opacity: 0
+        }, "3.5")
 
-                tl.to(MaskRef.current, {
-                    maskSize: "300vh",
-                    duration: 1,
-                    ease: "power1.inOut",
-                }, "4.2")
+        tl.to(MaskRef.current, {
+            maskSize: "300vh",
+            duration: 1,
+            ease: "power1.inOut",
+        }, "4.2")
 
-                tl.to(Sphere.current, {
-                    scale: 2,
-                    y: -300,
-                    opacity: 0,
-                }, "4.2")
+        tl.to(Sphere.current, {
+            scale: 2,
+            y: -300,
+            opacity: 0,
+        }, "4.2")
 
-                // Refresh ScrollTrigger to ensure it has the correct final positions
-                ScrollTrigger.refresh();
-            }
-        };
-
-        setupAnimations();
+        // tl.to(containerRef2.current, {
+        //     opacity: 0,
+        // }, "l2")
 
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         };
-    }, [isLoaded, sphereControls, contentControls]);
+    }, []);
 
     return (
         <>
@@ -142,11 +150,11 @@ const MaskedPage = () => {
 
                 <div className='body fixed top-0 -z-10'>
                     <div style={{ perspective: "2000px" }} ref={containerRef2} className="relative w-full h-screen flex items-center justify-center overflow-hidden">
-                        <motion.div
+                        {isLoaded && (<motion.div
                             ref={Sphere}
                             id='SPHERE'
                             initial={{ y: 500, opacity: 0, scale: 0.5 }}
-                            animate={sphereControls}
+                            animate={{ y: 0, opacity: 1, scale: 1 }}
                             transition={{ duration: 1.2, ease: "easeOut" }}
                             className='relative w-full z-50 h-screen flex items-end justify-center pointer-events-none'
                         >
@@ -156,7 +164,7 @@ const MaskedPage = () => {
                             <div className="absolute top-[48%] w-[1020px] h-[1020px] rounded-full bg-[#A78BFA]" />
                             <div className="absolute top-[48%] w-[1010px] h-[1000px] rounded-full z-50 bg-transparent border-8 border-[#A78BFA]/50 blur-[1px]" />
                             <div className='absolute top-[84%] w-[1300px] h-[800px] rounded-full bg-black z-20 blur-[100px]'></div>
-                        </motion.div>
+                        </motion.div>)}
                         <div className='absolute bg-[#4f46e5]/60 h-20 w-80 z-50 bottom-33 blur-[80px]'></div>
                         <div className='h-[25vh] rounded-full w-[66vw] bottom-60 absolute bg-[#4f46e5]/40 blur-[110px] pointer-events-none'></div>
                         <div className='h-[30vh] rounded-full w-[50vw] bottom-30 left-50 absolute bg-[#4f46e5]/40 blur-[110px] pointer-events-none'></div>
@@ -180,10 +188,10 @@ const MaskedPage = () => {
                             <p className='md:text-[1.6vw] text-[4.6vw] text-[#ffffff] font-[inter]'>Let&apos;s build the future of software—together.</p>
                         </div>
 
-                        <motion.div
+                        {isLoaded && (<motion.div
                             ref={contentRef}
                             initial={{ y: -200, opacity: 0 }}
-                            animate={contentControls}
+                            animate={{ y: 0, opacity: 1 }}
                             transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
                             className="flex mt-6 flex-col gap-5 text-white absolute top-54 md:top-35 z-50 items-center justify-center pointer-events-none"
                         >
@@ -194,7 +202,7 @@ const MaskedPage = () => {
                                 Earn Crypto by Solving <br /> Open Source
                             </div>
 
-                        </motion.div>
+                        </motion.div>)}
                     </div>
                 </div>
             </main >
