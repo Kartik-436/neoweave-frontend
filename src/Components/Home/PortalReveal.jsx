@@ -137,7 +137,7 @@ const MaskedPage = () => {
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         };
-    }, []);
+    }, [isLoaded]);
 
     return (
         <>
