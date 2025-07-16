@@ -39,7 +39,7 @@ const MaskedPage = () => {
                     opacity: 0,
                     duration: 1,
                     ease: "power3.out"
-                }, "-=0.8"); // Start this animation 0.8s before the previous one ends
+                }, "-=0.2"); // Start this animation 0.8s before the previous one ends
 
             // 2. Scroll-Based Animation Timeline
             const scrollTl = gsap.timeline({
