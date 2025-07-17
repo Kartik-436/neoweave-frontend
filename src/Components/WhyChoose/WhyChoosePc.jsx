@@ -186,22 +186,22 @@ const WhyChoosePc = () => {
 
         // Add all animations at the same time (0)
         tl.to(GE1.current, {
-            x: -442, // -23vw
-            y: 812,  // 42.3vw
+            x: -242, // -23vw
+            y: 412,  // 42.3vw
             opacity: 1,
             ease: "power4.inOut"
         }, 0)
 
             .to(GE2.current, {
-                x: 672,  // 35vw
-                y: 543,  // 28.3vw
+                x: 272,  // 35vw
+                y: 310,  // 28.3vw
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
 
             .to(GE3.current, {
-                x: -438, // -22.82vw
-                y: 543,  // 28.3vw
+                x: -238, // -22.82vw
+                y: 310,  // 28.3vw
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
@@ -221,15 +221,15 @@ const WhyChoosePc = () => {
             }, 0)
 
             .to(GE6.current, {
-                x: -211, // -11vw
-                y: -259, // -13.5vw
+                x: -101, // -11vw
+                y: -120, // -13.5vw
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
 
             .to(GE7.current, {
-                x: 442,  // 23vw
-                y: -259, // -13.5vw
+                x: 242,  // 23vw
+                y: -120, // -13.5vw
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0);
