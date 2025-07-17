@@ -167,7 +167,7 @@ const WhyChoosePc = () => {
                         scrollTrigger: {
                             trigger: Container2.current,
                             start: 'top top', // Start pinning right away
-                            end: '+=3000',    // Give it plenty of scroll distance
+                            end: '+=1800',    // Give it plenty of scroll distance
                             scrub: 1,
                             pin: true,        // Pin the container during the sequence
                         },
