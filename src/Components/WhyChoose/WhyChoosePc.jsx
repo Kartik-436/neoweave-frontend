@@ -94,47 +94,16 @@ const WhyChoosePc = () => {
             gsap.to(Sphere.current, {
                 y: -500,
                 ease: "expo.out",
-                duration: 0.5,
                 scrollTrigger: {
                     trigger: Container.current,
                     start: 'top 20%',
                     end: '45% 50%',
                     scrub: 1
                 }
-            })
-
-
-            gsap.to(Grid.current, {
-                y: -160,
-                rotateX: 0,
-                ease: "expo.out",
-                duration: 0.5,
-                scrollTrigger: {
-                    trigger: Container.current,
-                    start: 'top 20%',
-                    end: '45% 50%',
-                    scrub: 1
-                }
-            })
-
-
-            gsap.to(Grid2.current, {
-                y: -160,
-                rotateX: 0,
-                ease: "expo.out",
-                duration: 0.5,
-                scrollTrigger: {
-                    trigger: Container2.current,
-                    start: 'top 20%',
-                    end: '45% 50%',
-                    scrub: 1
-                }
-            })
-
+            });
 
             gsap.to(Text.current, {
                 y: -100,
-                duration: 0.1,
                 ease: "power4.inOut",
                 scrollTrigger: {
                     trigger: Container.current,
@@ -142,33 +111,21 @@ const WhyChoosePc = () => {
                     end: '40% 50%',
                     scrub: 1
                 }
-            })
+            });
 
-
-            gsap.to(".grid-fade-wrapper", {
+            // This makes the background grid fade out and become unclickable
+            gsap.to(Container.current, {
                 opacity: 0,
-                ease: "power4.inOut",
+                pointerEvents: 'none',
+                ease: "power1.in",
                 scrollTrigger: {
                     trigger: Container2.current,
-                    start: 'top 20%',
-                    end: 'bottom -140%',
+                    start: 'top 60%', // Start fading as the second grid approaches
+                    end: 'top 20%',
                     scrub: 1,
-                    pin: true
                 }
-            })
+            });
 
-
-            gsap.to(".grid-fade-wrapper", {
-                opacity: 0,
-                ease: "power4.inOut",
-                scrollTrigger: {
-                    trigger: Container.current,
-                    start: 'top 20%',
-                    end: 'bottom top',
-                    scrub: 1,
-                    pin: true
-                }
-            })
             // Main responsive animation logic using matchMedia
             ScrollTrigger.matchMedia({
 
