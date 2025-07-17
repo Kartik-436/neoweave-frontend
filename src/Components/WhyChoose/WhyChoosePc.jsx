@@ -186,50 +186,50 @@ const WhyChoosePc = () => {
 
         // Add all animations at the same time (0)
         tl.to(GE1.current, {
-            x: -242, // -23vw
-            y: 412,  // 42.3vw
+            x: '-242px', // -23vw
+            y: '412px',  // 42.3vw
             opacity: 1,
             ease: "power4.inOut"
         }, 0)
 
             .to(GE2.current, {
-                x: 272,  // 35vw
-                y: 310,  // 28.3vw
+                x: '272px',  // 35vw
+                y: '310px',  // 28.3vw
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
 
             .to(GE3.current, {
-                x: -238, // -22.82vw
-                y: 310,  // 28.3vw
+                x: '-238px', // -22.82vw
+                y: '310px',  // 28.3vw
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
 
             .to(GE4.current, {
-                x: 0,    // 0vw
-                y: 10,   // 0.5vw
+                x: '0px',    // 0vw
+                y: '10px',   // 0.5vw
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
 
             .to(GE5.current, {
-                x: 0,    // 0vw
-                y: 10,   // 0.5vw
+                x: '0px',    // 0vw
+                y: '10px',   // 0.5vw
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
 
             .to(GE6.current, {
-                x: -101, // -11vw
-                y: -120, // -13.5vw
+                x: '-101px', // -11vw
+                y: '-120px', // -13.5vw
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
 
             .to(GE7.current, {
-                x: 242,  // 23vw
-                y: -120, // -13.5vw
+                x: '242px',  // 23vw
+                y: '-120px', // -13.5vw
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0);
