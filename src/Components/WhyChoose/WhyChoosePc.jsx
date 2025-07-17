@@ -14,7 +14,7 @@ const PurpleSphere = ({
     left = '50px',
     width = '200px',    // Default width
     height = '200px',   // Default height
-    style = {},          // Allows for additional custom inline styles
+    style = {},         // Allows for additional custom inline styles
     sphereRef
 }) => {
     // Combine dynamic positioning/sizing with any custom styles
@@ -186,50 +186,50 @@ const WhyChoosePc = () => {
 
         // Add all animations at the same time (0)
         tl.to(GE1.current, {
-            x: "-208%",
-            y: "315%",
+            x: '-312px', // -23vw
+            y: '412px',  // 42.3vw
             opacity: 1,
             ease: "power4.inOut"
         }, 0)
 
             .to(GE2.current, {
-                x: "310%",
-                y: "210%",
+                x: '162px',  // 35vw
+                y: '222px',  // 28.3vw
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
 
             .to(GE3.current, {
-                x: "-205%",
-                y: "212%",
+                x: '-320px', // -22.82vw
+                y: '222px',  // 28.3vw
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
 
             .to(GE4.current, {
-                x: "0%",
-                y: "3%",
+                x: '329px',    // 0vw
+                y: '-158px',   // 0.5vw
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
 
             .to(GE5.current, {
-                x: "0%",
-                y: "3%",
+                x: '13px',    // 0vw
+                y: '-159px',   // 0.5vw
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
 
             .to(GE6.current, {
-                x: "-100%",
-                y: "-100%",
+                x: '-161px', // -11vw
+                y: '-347px', // -13.5vw
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
 
             .to(GE7.current, {
-                x: "206%",
-                y: "-100%",
+                x: '334px',  // 23vw
+                y: '-347px', // -13.5vw
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0);
@@ -270,7 +270,7 @@ const WhyChoosePc = () => {
         }, 1)
 
         tl.to(Grid2.current, {
-            y: -390,
+            y: -210,
             scale: 2.3,
             ease: "power4.inOut",
             // duration: 0.08
@@ -291,7 +291,7 @@ const WhyChoosePc = () => {
         }, 1.5)
 
         tl.to(Grid2.current, {
-            y: -530,
+            y: -360,
             scale: 3,
             scaleY: 3.5,
             ease: "power4.inOut",
@@ -332,7 +332,7 @@ const WhyChoosePc = () => {
 
             <div ref={Container} style={{ perspective: "1000px" }} className='absolute top-23 md:top-63 z-10'>
                 <div style={{ perspective: "1000px" }} className="grid-fade-wrapper">
-                    <div ref={Grid} className='bg-[#0F1013] h-[60vh] md:h-[110vh] w-[80vw] md:w-[58vw] border-2 border-[#bebebe27] rounded-xl grid gap-1.5 p-1 grid-cols-5 grid-rows-5 rotate-x-[55deg]'>
+                    <div ref={Grid} className='bg-[#0F1013] h-[951px] w-[800px] border-2 border-[#bebebe27] rounded-xl grid gap-1.5 p-1 grid-cols-5 grid-rows-5 rotate-x-[55deg]'>
 
                         <div className='rounded-md border-2 border-[#bebebe27]'>
 
@@ -439,33 +439,25 @@ const WhyChoosePc = () => {
 
             <div ref={Container2} style={{ perspective: "1000px" }} className='absolute z-10 top-23 md:top-63'>
                 <div style={{ perspective: "1000px" }} className="grid-fade-wrapper2">
-                    <div ref={Grid2} className='bg-transparent h-[60vh] md:h-[110vh] w-[80vw] md:w-[58vw] rounded-xl grid gap-1.5 p-1 grid-cols-5 grid-rows-5 rotate-x-[55deg]'>
+                    <div ref={Grid2} className='bg-transparent h-[951px] w-[800px] rounded-xl grid gap-1.5 p-1 grid-cols-5 grid-rows-5 rotate-x-[55deg]'>
 
                         <div className=''></div>
                         <div className=''></div>
                         <div className=''></div>
                         <div className=''></div>
 
-                        <div ref={GE1} className='rounded-md border-2 border-[#c972ff] backdrop-blur-md bg-white/10 p-5'>
+                        <div ref={GE1} className='rounded-md border-2 bg-[#bb1bfa]'>
+                            1
                         </div>
 
-                        <div ref={GE2} className='rounded-md border-2 border-[#c972ff] backdrop-blur-md bg-white/10 p-5'>
-                            <div className='text-[12px] text-[#c972ff] pb-4 flex'>
-                                Auto-Rewarded Merged PRs
-
-                            </div>
-                            <p className='text-[10px] text-[#f4e2ff]'>
-                                GitFund tracks merged pull requests in real-time and auto-distributes rewards, removing manual claim steps and letting contributors focus on coding.
-                            </p>
+                        <div ref={GE2} className='rounded-md border-2 bg-[#bb1bfa]'>
+                            2
                         </div>
+
                         <div className=''></div>
 
-                        <div ref={GE3} className='rounded-md border-2 border-[#c972ff] backdrop-blur-md bg-white/10 p-5'>
-                            <div className='text-[12px] text-[#c972ff] pb-4 flex'>
-                                Developer-First Experience
-                            </div>
-                            <p className='text-[10px] text-[#f4e2ff]'>
-                                Built for developers, GitFund OSNF offers a clean interface, simple wallet setup, and automatic tracking—no red tape, just fast onboarding and earnings.                                                    </p>
+                        <div ref={GE3} className='rounded-md border-2 bg-[#bb1bfa]'>
+                            3
                         </div>
 
                         <div className=''></div>
@@ -477,44 +469,26 @@ const WhyChoosePc = () => {
                         <div className=''></div>
                         <div className=''></div>
 
-                        <div ref={GE4} className='rounded-md border-2 border-[#c972ff] backdrop-blur-md bg-white/10 p-5'>
-                            <div className='text-[12px] text-[#c972ff] pb-4 flex'>
-                                Real-Time Analytics Dashboard
-                            </div>
-                            <p className='text-[10px] text-[#f4e2ff]'>
-                                Track contributions, earnings, and impact live. Detailed insights help developers optimize work and boost their presence in the open-source world.                                                    </p>
+                        <div ref={GE4} className='rounded-md border-2 bg-[#bb1bfa]'>
+                            4
                         </div>
 
                         <div className=''></div>
                         <div className=''></div>
 
-                        <div ref={GE5} className='rounded-md border-2 border-[#c972ff] backdrop-blur-md bg-white/10 p-5'>
-                            <div className='text-[12px] text-[#c972ff] pb-4 flex'>
-                                <Icon icon="mdi:github" width="24" height="24" />
-                                Gamified Contributor Profiles
-                            </div>
-                            <p className='text-[9px] text-[#f4e2ff]'>
-                                Visualize your progress, rank, and earnings in a profile built for engagement. Celebrate milestones and build a public open-source resume.                                                    </p>
+                        <div ref={GE5} className='rounded-md border-2 bg-[#bb1bfa]'>
+                            5
                         </div>
 
-                        <div ref={GE6} className='rounded-md border-2 border-[#c972ff] backdrop-blur-md bg-white/10 p-5'>
-                            <div className='text-[12px] text-[#c972ff] pb-4 flex'>
-                                Decentralized Reward System
-                            </div>
-                            <p className='text-[10px] text-[#f4e2ff]'>
-                                NeoWeave directly integrates with GitHub to auto-track contributions, PRs, and merges—rewarding developers without manual effort. Real-time repo monitoring ensures rewards are triggered instantly upon successful merges.
-                            </p>
+                        <div ref={GE6} className='rounded-md border-2 bg-[#bb1bfa]'>
+                            6
                         </div>
 
                         <div className=''></div>
                         <div className=''></div>
 
-                        <div ref={GE7} className='rounded-md border-2 border-[#c972ff] backdrop-blur-md bg-white/10 p-5'>
-                            <div className='text-[12px] text-[#c972ff] pb-4 flex'>
-                                Project-Specific Reward Rules
-                            </div>
-                            <p className='text-[10px] text-[#f4e2ff]'>
-                                Repo maintainers can define custom reward criteria—like tags, lines changed, or issue complexity—giving them fine-grained control over incentives.                                                    </p>
+                        <div ref={GE7} className='rounded-md border-2 bg-[#bb1bfa]'>
+                            7
                         </div>
 
                         <div className=''></div>
