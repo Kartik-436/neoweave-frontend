@@ -332,7 +332,7 @@ const WhyChoosePc = () => {
 
             <div ref={Container} style={{ perspective: "1000px" }} className='absolute top-23 md:top-63 z-10'>
                 <div style={{ perspective: "1000px" }} className="grid-fade-wrapper">
-                    <div ref={Grid} className='bg-[#0F1013] h-[60vh] md:h-[110vh] w-[80vw] md:w-[58vw] border-2 border-[#bebebe27] rounded-xl grid gap-1.5 p-1 grid-cols-5 grid-rows-5 rotate-x-[55deg]'>
+                    <div ref={Grid} className='bg-[#0F1013] h-[60vh] md:h-[951px] w-[80vw] md:w-[58vw] border-2 border-[#bebebe27] rounded-xl grid gap-1.5 p-1 grid-cols-5 grid-rows-5 rotate-x-[55deg]'>
 
                         <div className='rounded-md border-2 border-[#bebebe27]'>
 
@@ -439,7 +439,7 @@ const WhyChoosePc = () => {
 
             <div ref={Container2} style={{ perspective: "1000px" }} className='absolute z-10 top-23 md:top-63'>
                 <div style={{ perspective: "1000px" }} className="grid-fade-wrapper2">
-                    <div ref={Grid2} className='bg-transparent h-[60vh] md:h-[110vh] w-[80vw] md:w-[58vw] rounded-xl grid gap-1.5 p-1 grid-cols-5 grid-rows-5 rotate-x-[55deg]'>
+                    <div ref={Grid2} className='bg-transparent h-[60vh] md:h-[951px] w-[80vw] md:w-[58vw] rounded-xl grid gap-1.5 p-1 grid-cols-5 grid-rows-5 rotate-x-[55deg]'>
 
                         <div className=''></div>
                         <div className=''></div>
