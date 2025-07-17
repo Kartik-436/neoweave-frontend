@@ -187,7 +187,7 @@ const WhyChoosePc = () => {
         // Add all animations at the same time (0)
         tl.to(GE1.current, {
             x: "-208%",
-            y: "315%",
+            y: "312.5%",
             opacity: 1,
             ease: "power4.inOut"
         }, 0)
@@ -201,7 +201,7 @@ const WhyChoosePc = () => {
 
             .to(GE3.current, {
                 x: "-205%",
-                y: "212%",
+                y: "210%",
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
