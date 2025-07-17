@@ -12,18 +12,23 @@ gsap.registerPlugin(ScrollTrigger);
 const PurpleSphere = ({
     top = '50px',
     left = '50px',
-    width = '200px',
-    height = '200px',
-    style = {},
+    width = '200px',    // Default width
+    height = '200px',   // Default height
+    style = {},         // Allows for additional custom inline styles
     sphereRef
 }) => {
+    // Combine dynamic positioning/sizing with any custom styles
     const svgStyle = {
+        // position: 'absolute', // Essential for 'top' and 'left' to work
+        // top: top,
+        // left: left,
         width: width,
         height: height,
-        ...style
+        ...style // Merge any additional styles passed via the 'style' prop
     };
 
     return (
+        // Apply the dynamic style object to the SVG element
         <div className='z-50 absolute top-60'>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 200 200" className="l19k0qws" style={svgStyle}>
                 <g filter="url(#DarkOrb_svg__a)">
@@ -87,166 +92,216 @@ const WhyChoosePc = () => {
     const GE6 = useRef(null)
     const GE7 = useRef(null)
 
-    const main = useRef(null);
+    useEffect(() => {
+        gsap.to(Sphere.current, {
+            y: -500,
+            ease: "expo.out",
+            duration: 0.5,
+            scrollTrigger: {
+                trigger: Container.current,
+                start: 'top 20%',
+                end: '45% 50%',
+                scrub: 1
+            }
+        })
+
+        gsap.to(Grid.current, {
+            y: -160,
+            rotateX: 0,
+            ease: "expo.out",
+            duration: 0.5,
+            scrollTrigger: {
+                trigger: Container.current,
+                start: 'top 20%',
+                end: '45% 50%',
+                scrub: 1
+            }
+        })
+
+        gsap.to(Grid2.current, {
+            y: -160,
+            rotateX: 0,
+            ease: "expo.out",
+            duration: 0.5,
+            scrollTrigger: {
+                trigger: Container2.current,
+                start: 'top 20%',
+                end: '45% 50%',
+                scrub: 1
+            }
+        })
+
+        gsap.to(Text.current, {
+            y: -100,
+            duration: 0.1,
+            ease: "power4.inOut",
+            scrollTrigger: {
+                trigger: Container.current,
+                start: 'top 20%',
+                end: '40% 50%',
+                scrub: 1
+            }
+        })
+
+        gsap.to(".grid-fade-wrapper", {
+            opacity: 0,
+            ease: "power4.inOut",
+            scrollTrigger: {
+                trigger: Container2.current,
+                start: 'top 20%',
+                end: 'bottom -140%',
+                scrub: 1,
+                pin: true
+            }
+        })
+
+        gsap.to(".grid-fade-wrapper", {
+            opacity: 0,
+            ease: "power4.inOut",
+            scrollTrigger: {
+                trigger: Container.current,
+                start: 'top 20%',
+                end: 'bottom top',
+                scrub: 1,
+                pin: true
+            }
+        })
+
+        ScrollTrigger.refresh();
+
+    }, [])
 
     useEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.to(Sphere.current, {
-                y: -500,
-                ease: "expo.out",
-                duration: 0.5,
-                scrollTrigger: {
-                    trigger: Container.current,
-                    start: 'top 20%',
-                    end: '45% 50%',
-                    scrub: 1
-                }
-            })
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: Container2.current,
+                start: 'top 20%',
+                end: '+=1800',
+                scrub: 1,
+                scroller: document.body
+            },
+        });
 
+        ScrollTrigger.refresh();
 
-            gsap.to(Grid.current, {
-                y: -160,
-                rotateX: 0,
-                ease: "expo.out",
-                duration: 0.5,
-                scrollTrigger: {
-                    trigger: Container.current,
-                    start: 'top 20%',
-                    end: '45% 50%',
-                    scrub: 1
-                }
-            })
+        // Add all animations at the same time (0)
+        tl.to(GE1.current, {
+            x: "-23vw",
+            y: "42.3vw",
+            opacity: 1,
+            ease: "power4.inOut"
+        }, 0)
 
+            .to(GE2.current, {
+                x: "35vw",
+                y: "28.3vw",
+                opacity: 1,
+                ease: "power4.inOut"
+            }, 0)
 
-            gsap.to(Grid2.current, {
-                y: -160,
-                rotateX: 0,
-                ease: "expo.out",
-                duration: 0.5,
-                scrollTrigger: {
-                    trigger: Container2.current,
-                    start: 'top 20%',
-                    end: '45% 50%',
-                    scrub: 1
-                }
-            })
+            .to(GE3.current, {
+                x: "-22.82vw",
+                y: "28.3vw",
+                opacity: 1,
+                ease: "power4.inOut"
+            }, 0)
 
+            .to(GE4.current, {
+                x: "0vw",
+                y: "0.5vw",
+                opacity: 1,
+                ease: "power4.inOut"
+            }, 0)
 
-            gsap.to(Text.current, {
-                y: -100,
-                duration: 0.1,
-                ease: "power4.inOut",
-                scrollTrigger: {
-                    trigger: Container.current,
-                    start: 'top 20%',
-                    end: '40% 50%',
-                    scrub: 1
-                }
-            })
+            .to(GE5.current, {
+                x: "0vw",
+                y: "0.5vw",
+                opacity: 1,
+                ease: "power4.inOut"
+            }, 0)
 
-            gsap.to(Container.current, {
-                opacity: 0,
-                pointerEvents: 'none',
-                ease: "power1.in",
-                scrollTrigger: {
-                    trigger: Container2.current,
-                    start: 'top 60%', // Start fading as the second grid approaches
-                    end: 'top 20%',
-                    scrub: 1,
-                }
-            });
+            .to(GE6.current, {
+                x: "-11vw",
+                y: "-13.5vw",
+                opacity: 1,
+                ease: "power4.inOut"
+            }, 0)
 
-            // Main responsive animation logic using matchMedia
-            ScrollTrigger.matchMedia({
+            .to(GE7.current, {
+                x: "23vw",
+                y: "-13.5vw",
+                opacity: 1,
+                ease: "power4.inOut"
+            }, 0);
 
-                // ===================================================================
-                // 🖥️ DESKTOP ANIMATION (1024px and up)
-                // ===================================================================
-                "(min-width: 1024px)": function () {
-                    const tl = gsap.timeline({
-                        scrollTrigger: {
-                            trigger: Container2.current,
-                            start: 'top top', // Start pinning right away
-                            end: '+=1800',    // Give it plenty of scroll distance
-                            scrub: 1,
-                            pin: true,        // Pin the container during the sequence
-                        },
-                    });
+        tl.to(Grid2.current, {
+            y: -240,
+            scale: 1.75,
+            ease: "power4.inOut",
+            // duration: 0.08
+        }, 0.3)
 
-                    // --- Animate elements into position ---
-                    tl.to([GE1.current, GE2.current, GE3.current, GE4.current, GE5.current, GE6.current, GE7.current], {
-                        opacity: 1,
-                        ease: "power4.inOut"
-                    }, 0)
-                        .to(GE1.current, { x: "-23vw", y: "42.3vw" }, 0)
-                        .to(GE2.current, { x: "35vw", y: "28.3vw" }, 0)
-                        .to(GE3.current, { x: "-22.82vw", y: "28.3vw" }, 0)
-                        .to(GE4.current, { x: "0vw", y: "0.5vw" }, 0)
-                        .to(GE5.current, { x: "0vw", y: "0.5vw" }, 0)
-                        .to(GE6.current, { x: "-11vw", y: "-13.5vw" }, 0)
-                        .to(GE7.current, { x: "23vw", y: "-13.5vw" }, 0);
+        tl.to(GE3.current, {
+            y: 50,
+            opacity: 0,
+            ease: "power1.inOut",
+            duration: 0.1
+        }, 1)
 
-                    // --- First zoom and fade ---
-                    tl.to(Grid2.current, { y: -240, scale: 1.75, ease: "power4.inOut" }, 0.5)
-                        .to([GE3.current, GE5.current, GE6.current, GE7.current], { y: "+=50", opacity: 0, ease: "power1.inOut", stagger: 0.05 }, 1);
+        tl.to(GE5.current, {
+            y: 50,
+            opacity: 0,
+            ease: "power1.inOut",
+            duration: 0.1
+        }, 1)
 
-                    // --- Second zoom and fade ---
-                    tl.to(Grid2.current, { y: -390, scale: 2.3, ease: "power4.inOut" }, 1.2)
-                        .to([GE2.current, GE4.current], { y: "+=50", opacity: 0, ease: "power1.inOut", stagger: 0.05 }, 2);
+        tl.to(GE6.current, {
+            y: 50,
+            opacity: 0,
+            ease: "power1.inOut",
+            duration: 0.1
+        }, 1)
 
-                    // --- Final zoom ---
-                    tl.to(Grid2.current, { y: -530, scale: 3, scaleY: 3.5, ease: "power4.inOut" }, 2.6);
-                },
+        tl.to(GE7.current, {
+            y: 50,
+            opacity: 0,
+            ease: "power1.inOut",
+            duration: 0.1
+        }, 1)
 
-                // ===================================================================
-                // 📟 TABLET ANIMATION (768px to 1023px)
-                // ===================================================================
-                "(min-width: 768px) and (max-width: 1023px)": function () {
-                    const tl = gsap.timeline({
-                        scrollTrigger: {
-                            trigger: Container2.current,
-                            start: 'top top',
-                            end: '+=2500',
-                            scrub: 1,
-                            pin: true,
-                        },
-                    });
+        tl.to(Grid2.current, {
+            y: -390,
+            scale: 2.3,
+            ease: "power4.inOut",
+            // duration: 0.08
+        }, 1)
 
-                    // --- Animate elements into position (TABLET VALUES) ---
-                    tl.to([GE1.current, GE2.current, GE3.current, GE4.current, GE5.current, GE6.current, GE7.current], {
-                        opacity: 1,
-                        ease: "power4.inOut"
-                    }, 0)
-                        .to(GE1.current, { x: "-28vw", y: "50vh" }, 0)
-                        .to(GE2.current, { x: "38vw", y: "35vh" }, 0)
-                        .to(GE3.current, { x: "-28vw", y: "35vh" }, 0)
-                        .to(GE4.current, { x: "0vw", y: "5vh" }, 0)
-                        .to(GE5.current, { x: "0vw", y: "5vh" }, 0)
-                        .to(GE6.current, { x: "-15vw", y: "-20vh" }, 0)
-                        .to(GE7.current, { x: "28vw", y: "-20vh" }, 0);
+        tl.to(GE2.current, {
+            y: 50,
+            opacity: 0,
+            ease: "power1.inOut",
+            duration: 0.1
+        }, 1.5)
 
-                    // --- First zoom and fade (TABLET VALUES) ---
-                    tl.to(Grid2.current, { y: -180, scale: 1.6, ease: "power4.inOut" }, 0.5)
-                        .to([GE3.current, GE5.current, GE6.current, GE7.current], { y: "+=50", opacity: 0, ease: "power1.inOut", stagger: 0.05 }, 1);
+        tl.to(GE4.current, {
+            y: 50,
+            opacity: 0,
+            ease: "power1.inOut",
+            duration: 0.1
+        }, 1.5)
 
-                    // --- Second zoom and fade (TABLET VALUES) ---
-                    tl.to(Grid2.current, { y: -280, scale: 2.1, ease: "power4.inOut" }, 1.2)
-                        .to([GE2.current, GE4.current], { y: "+=50", opacity: 0, ease: "power1.inOut", stagger: 0.05 }, 1.7);
+        tl.to(Grid2.current, {
+            y: -530,
+            scale: 3,
+            scaleY: 3.5,
+            ease: "power4.inOut",
+            // duration: 0.08
+        }, 2)
 
-                    // --- Final zoom (TABLET VALUES) ---
-                    tl.to(Grid2.current, { y: -400, scale: 2.8, scaleY: 3.2, ease: "power4.inOut" }, 2.2);
-                },
-
-            });
-
-        }, main); // Scopes all animations to the main container element
-
-        return () => ctx.revert();
-
-    }, []); // Empty dependency array ensures this effect runs only once
+    }, [])
 
     return (
-        <div ref={main} id='how-it-works' className='w-full h-[400vh] relative items-center justify-center m-0 p-0 flex'>
+        <div id='how-it-works' className='w-full h-[400vh] relative items-center justify-center m-0 p-0 flex'>
 
             <PurpleSphere
                 sphereRef={Sphere}
