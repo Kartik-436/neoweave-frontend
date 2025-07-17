@@ -193,7 +193,7 @@ const WhyChoosePc = () => {
         }, 0)
 
             .to(GE2.current, {
-                x: '182px',  // 35vw
+                x: '162px',  // 35vw
                 y: '222px',  // 28.3vw
                 opacity: 1,
                 ease: "power4.inOut"
@@ -207,28 +207,28 @@ const WhyChoosePc = () => {
             }, 0)
 
             .to(GE4.current, {
-                x: '200px',    // 0vw
-                y: '-100px',   // 0.5vw
+                x: '329px',    // 0vw
+                y: '-158px',   // 0.5vw
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
 
             .to(GE5.current, {
-                x: '33px',    // 0vw
-                y: '159px',   // 0.5vw
+                x: '13px',    // 0vw
+                y: '-154px',   // 0.5vw
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
 
             .to(GE6.current, {
-                x: '-171px', // -11vw
+                x: '-161px', // -11vw
                 y: '-347px', // -13.5vw
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
 
             .to(GE7.current, {
-                x: '387px',  // 23vw
+                x: '334px',  // 23vw
                 y: '-347px', // -13.5vw
                 opacity: 1,
                 ease: "power4.inOut"
