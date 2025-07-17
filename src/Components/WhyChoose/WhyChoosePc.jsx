@@ -194,42 +194,42 @@ const WhyChoosePc = () => {
 
             .to(GE2.current, {
                 x: "35vw",
-                y: "30vw",
+                y: "28.3vw",
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
 
             .to(GE3.current, {
-                x: "-26vw",
-                y: "30vw",
+                x: "-22.82vw",
+                y: "28.3vw",
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
 
             .to(GE4.current, {
-                x: "0%",
-                y: "3.6%",
+                x: "0vw",
+                y: "-0.5vw",
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
 
             .to(GE5.current, {
-                x: "0%",
-                y: "3%",
+                x: "0vw",
+                y: "-0.5vw",
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
 
             .to(GE6.current, {
-                x: "-100%",
-                y: "-100%",
+                x: "-13vw",
+                y: "-13vw",
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
 
             .to(GE7.current, {
-                x: "206%",
-                y: "-100%",
+                x: "28vw",
+                y: "-13vw",
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0);
