@@ -270,7 +270,7 @@ const WhyChoosePc = () => {
         }, 1)
 
         tl.to(Grid2.current, {
-            y: -390,
+            y: -210,
             scale: 2.3,
             ease: "power4.inOut",
             // duration: 0.08
@@ -291,7 +291,7 @@ const WhyChoosePc = () => {
         }, 1.5)
 
         tl.to(Grid2.current, {
-            y: -530,
+            y: -360,
             scale: 3,
             scaleY: 3.5,
             ease: "power4.inOut",
