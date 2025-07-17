@@ -93,17 +93,17 @@ const WhyChoosePc = () => {
     const GE7 = useRef(null)
 
     useEffect(() => {
-        // gsap.to(Sphere.current, {
-        //     y: -500,
-        //     ease: "expo.out",
-        //     duration: 0.5,
-        //     scrollTrigger: {
-        //         trigger: Container.current,
-        //         start: 'top 20%',
-        //         end: '45% 50%',
-        //         scrub: 1
-        //     }
-        // })
+        gsap.to(Sphere.current, {
+            y: -500,
+            ease: "expo.out",
+            duration: 0.5,
+            scrollTrigger: {
+                trigger: Container.current,
+                start: 'top 20%',
+                end: '45% 50%',
+                scrub: 1
+            }
+        })
 
         gsap.to(Grid.current, {
             y: -160,
@@ -131,17 +131,17 @@ const WhyChoosePc = () => {
             }
         })
 
-        // gsap.to(Text.current, {
-        //     y: -100,
-        //     duration: 0.1,
-        //     ease: "power4.inOut",
-        //     scrollTrigger: {
-        //         trigger: Container.current,
-        //         start: 'top 20%',
-        //         end: '40% 50%',
-        //         scrub: 1
-        //     }
-        // })
+        gsap.to(Text.current, {
+            y: -100,
+            duration: 0.1,
+            ease: "power4.inOut",
+            scrollTrigger: {
+                trigger: Container.current,
+                start: 'top 20%',
+                end: '40% 50%',
+                scrub: 1
+            }
+        })
 
         gsap.to(".grid-fade-wrapper", {
             opacity: 0,
