@@ -215,7 +215,7 @@ const WhyChoosePc = () => {
 
             .to(GE5.current, {
                 x: '13px',    // 0vw
-                y: '-154px',   // 0.5vw
+                y: '-159px',   // 0.5vw
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
