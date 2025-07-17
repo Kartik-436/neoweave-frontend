@@ -17,7 +17,7 @@ export default function Home() {
     <SmoothScroll>
       <ThemeProvider>
         <div id="CompleteHomePage" className="bg-[#09090b] w-full min-h-screen overflow-hidden relative">
-          <ParticleTextEffect />
+          {/* <ParticleTextEffect /> */}
           <NavBar3 />
           <MaskedPage />
           <BountiesSection />

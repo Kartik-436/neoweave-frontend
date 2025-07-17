@@ -93,17 +93,17 @@ const WhyChoosePc = () => {
     const GE7 = useRef(null)
 
     useEffect(() => {
-        gsap.to(Sphere.current, {
-            y: -500,
-            ease: "expo.out",
-            duration: 0.5,
-            scrollTrigger: {
-                trigger: Container.current,
-                start: 'top 20%',
-                end: '45% 50%',
-                scrub: 1
-            }
-        })
+        // gsap.to(Sphere.current, {
+        //     y: -500,
+        //     ease: "expo.out",
+        //     duration: 0.5,
+        //     scrollTrigger: {
+        //         trigger: Container.current,
+        //         start: 'top 20%',
+        //         end: '45% 50%',
+        //         scrub: 1
+        //     }
+        // })
 
         gsap.to(Grid.current, {
             y: -160,
@@ -131,17 +131,17 @@ const WhyChoosePc = () => {
             }
         })
 
-        gsap.to(Text.current, {
-            y: -100,
-            duration: 0.1,
-            ease: "power4.inOut",
-            scrollTrigger: {
-                trigger: Container.current,
-                start: 'top 20%',
-                end: '40% 50%',
-                scrub: 1
-            }
-        })
+        // gsap.to(Text.current, {
+        //     y: -100,
+        //     duration: 0.1,
+        //     ease: "power4.inOut",
+        //     scrollTrigger: {
+        //         trigger: Container.current,
+        //         start: 'top 20%',
+        //         end: '40% 50%',
+        //         scrub: 1
+        //     }
+        // })
 
         gsap.to(".grid-fade-wrapper", {
             opacity: 0,
@@ -186,8 +186,8 @@ const WhyChoosePc = () => {
 
         // Add all animations at the same time (0)
         tl.to(GE1.current, {
-            x: "-208%",
-            y: "312.5%",
+            x: "-22vw",
+            y: "50vw",
             opacity: 1,
             ease: "power4.inOut"
         }, 0)
@@ -208,7 +208,7 @@ const WhyChoosePc = () => {
 
             .to(GE4.current, {
                 x: "0%",
-                y: "3%",
+                y: "3.6%",
                 opacity: 1,
                 ease: "power4.inOut"
             }, 0)
@@ -234,69 +234,69 @@ const WhyChoosePc = () => {
                 ease: "power4.inOut"
             }, 0);
 
-        tl.to(Grid2.current, {
-            y: -240,
-            scale: 1.75,
-            ease: "power4.inOut",
-            // duration: 0.08
-        }, 0.3)
+        // tl.to(Grid2.current, {
+        //     y: -240,
+        //     scale: 1.75,
+        //     ease: "power4.inOut",
+        //     // duration: 0.08
+        // }, 0.3)
 
-        tl.to(GE3.current, {
-            y: 50,
-            opacity: 0,
-            ease: "power1.inOut",
-            duration: 0.1
-        }, 1)
+        // tl.to(GE3.current, {
+        //     y: 50,
+        //     opacity: 0,
+        //     ease: "power1.inOut",
+        //     duration: 0.1
+        // }, 1)
 
-        tl.to(GE5.current, {
-            y: 50,
-            opacity: 0,
-            ease: "power1.inOut",
-            duration: 0.1
-        }, 1)
+        // tl.to(GE5.current, {
+        //     y: 50,
+        //     opacity: 0,
+        //     ease: "power1.inOut",
+        //     duration: 0.1
+        // }, 1)
 
-        tl.to(GE6.current, {
-            y: 50,
-            opacity: 0,
-            ease: "power1.inOut",
-            duration: 0.1
-        }, 1)
+        // tl.to(GE6.current, {
+        //     y: 50,
+        //     opacity: 0,
+        //     ease: "power1.inOut",
+        //     duration: 0.1
+        // }, 1)
 
-        tl.to(GE7.current, {
-            y: 50,
-            opacity: 0,
-            ease: "power1.inOut",
-            duration: 0.1
-        }, 1)
+        // tl.to(GE7.current, {
+        //     y: 50,
+        //     opacity: 0,
+        //     ease: "power1.inOut",
+        //     duration: 0.1
+        // }, 1)
 
-        tl.to(Grid2.current, {
-            y: -390,
-            scale: 2.3,
-            ease: "power4.inOut",
-            // duration: 0.08
-        }, 1)
+        // tl.to(Grid2.current, {
+        //     y: -390,
+        //     scale: 2.3,
+        //     ease: "power4.inOut",
+        //     // duration: 0.08
+        // }, 1)
 
-        tl.to(GE2.current, {
-            y: 50,
-            opacity: 0,
-            ease: "power1.inOut",
-            duration: 0.1
-        }, 1.5)
+        // tl.to(GE2.current, {
+        //     y: 50,
+        //     opacity: 0,
+        //     ease: "power1.inOut",
+        //     duration: 0.1
+        // }, 1.5)
 
-        tl.to(GE4.current, {
-            y: 50,
-            opacity: 0,
-            ease: "power1.inOut",
-            duration: 0.1
-        }, 1.5)
+        // tl.to(GE4.current, {
+        //     y: 50,
+        //     opacity: 0,
+        //     ease: "power1.inOut",
+        //     duration: 0.1
+        // }, 1.5)
 
-        tl.to(Grid2.current, {
-            y: -530,
-            scale: 3,
-            scaleY: 3.5,
-            ease: "power4.inOut",
-            // duration: 0.08
-        }, 2)
+        // tl.to(Grid2.current, {
+        //     y: -530,
+        //     scale: 3,
+        //     scaleY: 3.5,
+        //     ease: "power4.inOut",
+        //     // duration: 0.08
+        // }, 2)
 
     }, [])
 
