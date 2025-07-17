@@ -439,7 +439,7 @@ const WhyChoosePc = () => {
 
             <div ref={Container2} style={{ perspective: "1000px" }} className='absolute z-10 top-23 md:top-63'>
                 <div style={{ perspective: "1000px" }} className="grid-fade-wrapper2">
-                    <div ref={Grid2} className='bg-transparent h-[951px] [800px] rounded-xl grid gap-1.5 p-1 grid-cols-5 grid-rows-5 rotate-x-[55deg]'>
+                    <div ref={Grid2} className='bg-transparent h-[951px] w-[800px] rounded-xl grid gap-1.5 p-1 grid-cols-5 grid-rows-5 rotate-x-[55deg]'>
 
                         <div className=''></div>
                         <div className=''></div>
