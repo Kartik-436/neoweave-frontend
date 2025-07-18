@@ -67,28 +67,6 @@ const StringAnimation2 = () => {
     )
 }
 
-const AnimateOnView = ({ children, className = "", delay = 0, y = 20 }) => {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { margin: "-100px 0px" });
-
-    const variants = {
-        hidden: { opacity: 0, y: y },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.6, 0.05, -0.01, 0.9], delay } },
-    };
-
-    return (
-        <div ref={ref} className={className}>
-            <motion.div
-                variants={variants}
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
-            >
-                {children}
-            </motion.div>
-        </div>
-    );
-};
-
 const AnimatedText = ({ text, el: Wrapper = 'p', className, style, stagger = 0.03 }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { margin: "-100px 0px" });
@@ -123,16 +101,73 @@ const AnimatedText = ({ text, el: Wrapper = 'p', className, style, stagger = 0.0
     );
 };
 
+
 const FinalPage = () => {
     const ballRefs = useRef([]);
     const textRef = useRef(null);
-
     const Notiref1 = useRef(null)
     const Notiref2 = useRef(null)
-
     const registerSectionRef = useRef(null);
 
+    // This ref is for the container of the "Register Now" section to trigger its animation
     const registerIsInView = useInView(registerSectionRef, { margin: "-200px 0px" });
+
+    // GSAP Animations
+    useEffect(() => {
+        // --- FIX: Create a context for this component's GSAP animations ---
+        let ctx = gsap.context(() => {
+            // Floating balls animation
+            ballRefs.current.forEach((ball) => {
+                if (ball) floatBall(ball);
+            });
+
+            // Word-by-word color scroll animation
+            const words = gsap.utils.toArray('.scroll-word');
+            gsap.set(words, { color: '#dbcaab' });
+
+            let tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: textRef.current,
+                    start: 'top top',
+                    end: `bottom 30%`,
+                    scrub: 1,
+                    pin: true,
+                },
+            });
+
+            words.forEach((word, i) => {
+                tl.to(word, { color: '#09090b', duration: 0.3, ease: 'power1.in' }, i * 0.15);
+            });
+
+            // Parallax scroll for the notification-like element
+            gsap.to(Notiref2.current, {
+                y: 40,
+                scrollTrigger: {
+                    trigger: Notiref1.current,
+                    start: "start 60%",
+                    end: "50% 65%",
+                    scrub: 1,
+                }
+            });
+        });
+
+        // --- FIX: The cleanup function now only reverts animations created within this context ---
+        return () => ctx.revert();
+
+    }, []);
+
+    const floatBall = (ball) => {
+        gsap.to(ball, {
+            x: gsap.utils.random(-40, 40),
+            y: gsap.utils.random(-40, 40),
+            duration: gsap.utils.random(2, 4),
+            ease: 'sine.inOut',
+            yoyo: true,
+            repeat: -1,
+        });
+    };
+
+    const paragraph = "Designed to let you focus on your work and earn crypto.";
 
     // Framer Motion Variants for the "Register Now" section
     const registerContainerVariants = {
@@ -150,67 +185,8 @@ const FinalPage = () => {
         visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
     };
 
-    useEffect(() => {
-        // Floating balls animation
-        ballRefs.current.forEach((ball) => {
-            floatBall(ball);
-        });
-
-        // Word-by-word color scroll animation
-        const words = gsap.utils.toArray('.scroll-word');
-        gsap.set(words, { color: '#dbcaab' });
-
-        let tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: textRef.current,
-                start: 'top top',
-                end: `bottom 30%`, // Enough space for word-by-word
-                scrub: 1,
-                pin: true,
-            },
-        });
-
-        words.forEach((word, i) => {
-            tl.to(word, {
-                color: '#09090b',
-                duration: 0.3,
-                ease: 'power1.in',
-            }, i * 0.15);
-        });
-
-        return () => {
-            ScrollTrigger.getAll().forEach(t => t.kill());
-        };
-    }, []);
-
-    useEffect(() => {
-        gsap.to(Notiref2.current, {
-            y: 40,
-            scrollTrigger: {
-                trigger: Notiref1.current,
-                start: "start 60%",
-                end: "50% 65%",
-                scrub: 1,
-            }
-        })
-    }, [])
-
-
-    const floatBall = (ball) => {
-        const duration = gsap.utils.random(1, 3, 0.1);
-        const deltaX = gsap.utils.random(-40, 40);
-        const deltaY = gsap.utils.random(-40, 40);
-        gsap.to(ball, {
-            x: deltaX,
-            y: deltaY,
-            duration,
-            ease: 'sine.inOut',
-            yoyo: true,
-            repeat: -1,
-        });
-    };
-
-    const paragraph = "Designed to let you focus on your work and earn crypto.";
+    const lastref = useRef(null);
+    const lastrefisInView = useInView(lastref, { margin: "-100px 0px" });
 
     return (
         <div className='min-h-[350vh] w-full bg-[#fffafa] z-10 overflow-hidden relative'>
@@ -280,6 +256,7 @@ const FinalPage = () => {
                 </div>
             </div>
 
+            {/** "Register Now" Section with Stagger Animation (Framer Motion) */}
             <motion.div
                 ref={registerSectionRef}
                 className='absolute bottom-[50vh] left-0 z-50 flex flex-col items-center w-full min-h-[50vh] justify-center'
@@ -307,13 +284,29 @@ const FinalPage = () => {
                 </motion.div>
             </motion.div>
 
-            <div className='w-full flex md:flex-row flex-col md:justify-between md:items-end items-start justify-start absolute md:bottom-5 bottom-8 md:px-[12vh] px-5'>
-                <AnimateOnView className='overflow-hidden'>
+            {/** Bottom Text Section with Fade-in Animation (Framer Motion) */}
+            <div
+                ref={lastref}
+                initial="hidden"
+                animate={lastrefisInView ? "visible" : "hidden"}
+                className='w-full flex md:flex-row flex-col md:justify-between md:items-end items-start justify-start absolute md:bottom-5 bottom-8 md:px-[12vh] px-5'
+            >
+                <motion.div
+                    variants={itemVariants}
+                    initial="hidden"
+                    animate={lastrefisInView ? "visible" : "hidden"}
+                    className='overflow-hidden'
+                >
                     <h1 className='md:text-6xl text-5xl font-[Marcellus] font-semibold'>Organised.</h1>
-                </AnimateOnView>
-                <AnimateOnView className='overflow-hidden' delay={0.2}>
+                </motion.div>
+                <motion.div
+                    variants={itemVariants}
+                    initial="hidden"
+                    animate={lastrefisInView ? "visible" : "hidden"}
+                    className='overflow-hidden'
+                >
                     <h1 className='md:text-2xl text-xl font-[Marcellus] font-medium'>So you don't have to be.</h1>
-                </AnimateOnView>
+                </motion.div>
             </div>
 
             {/* Background DotGrid */}
