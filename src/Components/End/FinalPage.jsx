@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import DotGridBackground from '../ui/dotGridBackground';
 import DotGrid from './../ui/dotgridreactive';
 
@@ -67,12 +67,88 @@ const StringAnimation2 = () => {
     )
 }
 
+const AnimateOnView = ({ children, className = "", delay = 0, y = 20 }) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { margin: "-100px 0px" });
+
+    const variants = {
+        hidden: { opacity: 0, y: y },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.6, 0.05, -0.01, 0.9], delay } },
+    };
+
+    return (
+        <div ref={ref} className={className}>
+            <motion.div
+                variants={variants}
+                initial="hidden"
+                animate={isInView ? "visible" : "hidden"}
+            >
+                {children}
+            </motion.div>
+        </div>
+    );
+};
+
+const AnimatedText = ({ text, el: Wrapper = 'p', className, style, stagger = 0.03 }) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { margin: "-100px 0px" });
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { staggerChildren: stagger } },
+    };
+
+    const wordVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { type: 'spring', damping: 12, stiffness: 100 } },
+    };
+
+    return (
+        <Wrapper className={className} style={style} ref={ref}>
+            {text.split(' ').map((word, index) => (
+                <motion.span
+                    key={index}
+                    className="inline-block"
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate={isInView ? 'visible' : 'hidden'}
+                    aria-hidden="true" // Hide from screen readers to prevent double reading
+                >
+                    <motion.span variants={wordVariants} className="inline-block mr-[0.25em]">
+                        {word}
+                    </motion.span>
+                </motion.span>
+            ))}
+        </Wrapper>
+    );
+};
+
 const FinalPage = () => {
     const ballRefs = useRef([]);
     const textRef = useRef(null);
 
     const Notiref1 = useRef(null)
     const Notiref2 = useRef(null)
+
+    const registerSectionRef = useRef(null);
+
+    const registerIsInView = useInView(registerSectionRef, { margin: "-200px 0px" });
+
+    // Framer Motion Variants for the "Register Now" section
+    const registerContainerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.3, // This creates the stagger between the string and the text/button group
+            },
+        },
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    };
 
     useEffect(() => {
         // Floating balls animation
@@ -204,29 +280,40 @@ const FinalPage = () => {
                 </div>
             </div>
 
-            <div className='absolute bottom-[50vh] left-0 z-50 flex flex-col items-center w-full min-h-[50vh] justify-center'>
-                <div className='md:flex hidden'>
-                    <StringAnimation2 />
-                </div>
+            <motion.div
+                ref={registerSectionRef}
+                className='absolute bottom-[50vh] left-0 z-50 flex flex-col items-center w-full min-h-[50vh] justify-center'
+                variants={registerContainerVariants}
+                initial="hidden"
+                animate={registerIsInView ? "visible" : "hidden"}
+            >
+                {/* Child 1: The String */}
+                <motion.div variants={itemVariants} className="w-full">
+                    <div className='md:flex hidden'><StringAnimation2 /></div>
+                    <div className='flex md:hidden w-full h-[0.3vh] bg-[#dbcaab] relative top-[10vh] left-0 mx-auto w-[80vw]'></div>
+                </motion.div>
 
-                <div className='flex md:hidden w-full'>
-                    <div className='w-[80vw] h-[0.3vh] bg-[#dbcaab] absolute top-0 left-[10vw]'></div>
-                </div>
-
-                <div className='flex flex-col items-center justify-center w-full mt-[-21vh] md:mt-[-5.5vh] gap-[3vh] md:gap-[11vh]'>
-                    <h1 className='md:text-5xl text-[8vw] font-[Marcellus] font-semibold w-full text-center pointer-events-none z-0'>
-                        Register Now to earn crypto for open source.
-                    </h1>
-
+                {/* Child 2: The Text and Button group */}
+                <motion.div variants={itemVariants} className='flex flex-col items-center justify-center w-full mt-[-21vh] md:mt-[-5.5vh] gap-[3vh] md:gap-[11vh]'>
+                    <AnimatedText
+                        text="Register Now to earn crypto for open source."
+                        el="h1"
+                        className='md:text-5xl text-[8vw] font-[Marcellus] font-semibold w-full text-center pointer-events-none z-0'
+                        stagger={0.04}
+                    />
                     <button className='md:px-13 px-10 md:py-7 py-5 bg-[#a305ff] text-white text-2xl cursor-pointer font-semibold font-[Inter] rounded-full'>
                         Register
                     </button>
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
 
             <div className='w-full flex md:flex-row flex-col md:justify-between md:items-end items-start justify-start absolute md:bottom-5 bottom-8 md:px-[12vh] px-5'>
-                <h1 className='md:text-6xl text-5xl font-[Marcellus] font-semibold'>Organised.</h1>
-                <h1 className='md:text-2xl text-xl font-[Marcellus] font-medium'>So you don't have to be.</h1>
+                <AnimateOnView className='overflow-hidden'>
+                    <h1 className='md:text-6xl text-5xl font-[Marcellus] font-semibold'>Organised.</h1>
+                </AnimateOnView>
+                <AnimateOnView className='overflow-hidden' delay={0.2}>
+                    <h1 className='md:text-2xl text-xl font-[Marcellus] font-medium'>So you don't have to be.</h1>
+                </AnimateOnView>
             </div>
 
             {/* Background DotGrid */}
