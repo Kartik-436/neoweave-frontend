@@ -11,24 +11,32 @@ import MaskedPage from "@/Components/Home/PortalReveal";
 import Footer from "@/Components/Footer/Footerpage";
 import { ThemeProvider } from '@/Components/End/ThemeChangeContext';
 import { ParticleTextEffect } from "../Components/ui/PreloadingPage";
+import CustomCursorMain from './../Components/Cursor/CustomCursorMain';
+import CustomCursor from './../Components/Cursor/Cursor';
+import {CursorProvider} from './../Components/Cursor/CursorContext';
 
 export default function Home() {
   return (
     <SmoothScroll>
       <ThemeProvider>
-        <div id="CompleteHomePage" className="bg-[#09090b] w-full min-h-screen overflow-hidden relative">
-          {/* <ParticleTextEffect /> */}
-          <NavBar3 />
-          <MaskedPage />
-          <BountiesSection />
-          <WhyChoosePage />
-          <PricingPage />
-          <TestimonialsPage />
-          <LastPortal />
-          <FinalPage />
-          <Footer />
-        </div>
+        <CursorProvider>
+          <div id="CompleteHomePage" className="bg-[#09090b] w-full min-h-screen overflow-hidden relative">
+            {/* <ParticleTextEffect /> */}
+            {/* <CustomCursorMain /> */}
+            <CustomCursor />
+
+            <NavBar3 />
+            <MaskedPage />
+            <BountiesSection />
+            <WhyChoosePage />
+            <PricingPage />
+            <TestimonialsPage />
+            <LastPortal />
+            <FinalPage />
+            <Footer />
+          </div>
+        </CursorProvider>
       </ThemeProvider>
-    </SmoothScroll>
+    </SmoothScroll >
   )
 }

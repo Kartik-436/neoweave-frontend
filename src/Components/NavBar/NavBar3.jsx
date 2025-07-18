@@ -10,6 +10,9 @@ import NeowareLogo from './RotatingLogo';
 import gsap from 'gsap';
 import FlipLink from './FlipLinks';
 import StaggeredTextButton from './../StaggeredButton';
+import { CursorContext } from "../Cursor/CursorContext";
+import { useContext } from 'react';
+import Magnetic from './../Cursor/Magnetic';
 
 const NavBar3 = () => {
     const [isVisible, setIsVisible] = useState(true);
@@ -89,6 +92,8 @@ const NavBar3 = () => {
         const [speed, setSpeed] = useState(0.08);
         const [spinDirection, setSpinDirection] = useState('clockwise');
 
+        var { setHover } = useContext(CursorContext);
+
         const animateSpeedTo = (target, duration = 1) => {
             if (speedTween.current) speedTween.current.kill();
 
@@ -150,7 +155,7 @@ const NavBar3 = () => {
         }, []);
 
         return (
-            <div onClick={handleClick} className='w-full h-full flex items-center justify-start cursor-pointer'>
+            <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} onClick={handleClick} className='w-full h-full flex items-center justify-start cursor-pointer'>
                 <div>
                     <NeowareLogo
                         width={60}
@@ -160,6 +165,7 @@ const NavBar3 = () => {
                         direction={spinDirection}
                     />
                 </div>
+                {/* <Magnetic> */}
                 <div className='overflow-hidden'>
                     <h1
                         ref={textRef}
@@ -169,9 +175,12 @@ const NavBar3 = () => {
                         neoweave
                     </h1>
                 </div>
+                {/* </Magnetic> */}
             </div>
         );
     };
+
+    var { setHover } = useContext(CursorContext);
 
     return (
         <div>
@@ -275,11 +284,7 @@ const NavBar3 = () => {
                         <FlipLink children={"Dashboard"} size={"text-md"} />
                     </div>
 
-                    <div className='w-full h-full flex items-center justify-end gap-3'>
-                        {/* <div className={`px-5 py-2 rounded-full font-semibold text-nowrap ${isThemeDark ? 'text-black bg-white' : 'text-white bg-black'} shadow-[0_0_10px_2px] shadow-[#fff] cursor-pointer`} onClick={() => handleNavigation('')}>
-                            Log In
-                        </div> */}
-
+                    <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} className='w-full h-full flex items-center justify-end gap-3'>
                         <StaggeredTextButton
                             text="Log In"
                             hoverText="Lets Go"
