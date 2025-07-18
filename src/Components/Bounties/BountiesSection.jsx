@@ -16,6 +16,9 @@ import { ScrollTrigger } from 'gsap/all';
 import { FlickeringGrid } from '../ui/flickering-grid';
 import DotGridBackground from '../ui/dotGridBackground';
 import DotGrid from '../ui/dotgridreactive';
+import StaggeredTextButton from './../StaggeredButton';
+
+
 // const BountiesSection = () => {
 //     const items = [
 //         {
@@ -132,9 +135,11 @@ function BentoGridDemo() {
                 </BentoGrid>
 
                 <div ref={btnref} className='w-full pr-[12vw] flex items-end justify-end'>
-                    <button className='text-white text-xl rounded-full px-13 py-7 bg-[#a600ff] cursor-pointer'>
-                        View More
-                    </button>
+                    <StaggeredTextButton
+                        text="View More"
+                        hoverText="View More"
+                        className='hover:text-white text-[1.4vw] hover:shadow-[0_0_30px_5px] hover:shadow-[#a200ff] rounded-full px-13 py-7 hover:bg-[#a200ff] bg-[#f5f5f5] text-black cursor-pointer transition-all duration-500'
+                    />
                 </div>
             </div>
 

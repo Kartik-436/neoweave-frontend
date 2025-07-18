@@ -10,7 +10,7 @@ const StaggeredLink = ({ title, href }) => {
         initial: {},
         hover: {
             transition: {
-                staggerChildren: 0.022, 
+                staggerChildren: 0.01, 
             },
         },
     };

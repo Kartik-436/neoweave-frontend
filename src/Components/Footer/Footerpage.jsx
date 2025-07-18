@@ -7,6 +7,7 @@ import FlipLink from '../NavBar/FlipLinks';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import StaggeredLink from './StaggeredLink';
+import StaggeredTextButton from '../StaggeredButton';
 
 const AnimatedText = ({
     text,
@@ -102,7 +103,7 @@ const FooterColumn = ({ title, links }) => {
             >
                 {links.map((link) => (
                     <motion.li key={link.name} variants={itemVariants}>
-                        <StaggeredLink title={link.name} href={link.href} />
+                        <StaggeredTextButton text={link.name} href={link.href} />
                     </motion.li>
                 ))}
             </motion.ul>

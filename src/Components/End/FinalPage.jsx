@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, useInView } from 'framer-motion';
 import DotGridBackground from '../ui/dotGridBackground';
 import DotGrid from './../ui/dotgridreactive';
+import StaggeredTextButton from '../StaggeredButton';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -110,7 +111,7 @@ const FinalPage = () => {
     const registerSectionRef = useRef(null);
 
     // This ref is for the container of the "Register Now" section to trigger its animation
-    const registerIsInView = useInView(registerSectionRef, { margin: "-200px 0px" });
+    const registerIsInView = useInView(registerSectionRef, { margin: "0px 0px" });
 
     // GSAP Animations
     useEffect(() => {
@@ -278,9 +279,15 @@ const FinalPage = () => {
                         className='md:text-5xl text-[8vw] font-[Marcellus] font-semibold w-full text-center pointer-events-none z-0'
                         stagger={0.04}
                     />
-                    <button className='md:px-13 px-10 md:py-7 py-5 bg-[#a305ff] text-white text-2xl cursor-pointer font-semibold font-[Inter] rounded-full'>
+                    {/* <button className='md:px-13 px-10 md:py-7 py-5 bg-[#a305ff] text-white text-2xl cursor-pointer font-semibold font-[Inter] rounded-full'>
                         Register
-                    </button>
+                    </button> */}
+
+                    <StaggeredTextButton
+                        text="Register"
+                        hoverText="Let&apos;s Go"
+                        className='text-white text-[1.4vw] hover:shadow-[0_0_30px_5px] hover:shadow-[#a200ff] rounded-full px-13 py-7 bg-[#a200ff] cursor-pointer transition-all duration-700'
+                    />
                 </motion.div>
             </motion.div>
 

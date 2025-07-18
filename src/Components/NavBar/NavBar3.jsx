@@ -9,6 +9,7 @@ import { useThemeChange } from '../End/ThemeChangeContext';
 import NeowareLogo from './RotatingLogo';
 import gsap from 'gsap';
 import FlipLink from './FlipLinks';
+import StaggeredTextButton from './../StaggeredButton';
 
 const NavBar3 = () => {
     const [isVisible, setIsVisible] = useState(true);
@@ -275,9 +276,15 @@ const NavBar3 = () => {
                     </div>
 
                     <div className='w-full h-full flex items-center justify-end gap-3'>
-                        <div className={`px-5 py-2 rounded-full font-semibold text-nowrap ${isThemeDark ? 'text-black bg-white' : 'text-white bg-black'} shadow-[0_0_10px_2px] shadow-[#fff] cursor-pointer`} onClick={() => handleNavigation('')}>
+                        {/* <div className={`px-5 py-2 rounded-full font-semibold text-nowrap ${isThemeDark ? 'text-black bg-white' : 'text-white bg-black'} shadow-[0_0_10px_2px] shadow-[#fff] cursor-pointer`} onClick={() => handleNavigation('')}>
                             Log In
-                        </div>
+                        </div> */}
+
+                        <StaggeredTextButton
+                            text="Log In"
+                            hoverText="Lets Go"
+                            className={`px-5 py-2 rounded-full hover:bg-[#a200ff] hover:text-white hover:shadow-[#a200ff] font-semibold text-nowrap ${isThemeDark ? 'text-black bg-white' : 'text-white bg-black'} shadow-[0_0_10px_2px] shadow-[#fff] cursor-pointer transition-colors duration-500`}
+                        />
                     </div>
                 </div>
             </div>
