@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import StaggeredLink from './StaggeredLink';
 import StaggeredTextButton from '../StaggeredButton';
+import Image from 'next/image';
 
 const AnimatedText = ({
     text,
@@ -196,11 +197,11 @@ const Footer = () => {
                 <h1 style={{ fontFamily: 'var(--font-cypher)' }} className='text-black text-[18vw] z-50 font-bold text-center w-full scale-y-150'>neoweave</h1>
             </div> */}
 
-            <div className='absolute z-10 md:-bottom-[2vh] bottom-[3vh] leading-none w-full flex justify-center'>
+            <div className='absolute z-10 md:-bottom-[0vh] bottom-[3vh] leading-none w-full flex justify-center'>
                 <AnimatedText
                     text="neoweave"
                     el="h1"
-                    className='text-black text-[18vw] z-50 font-bold text-center scale-y-150'
+                    className='text-[#000000] text-[18vw] z-50 font-bold text-center scale-y-200 scale-x-105'
                     style={{ fontFamily: 'var(--font-cypher), sans-serif' }}
                     stagger={0.12}
                 />
@@ -208,6 +209,16 @@ const Footer = () => {
 
             <div className='w-full h-full'>
                 <div className='w-[90vw] md:h-[0.15vh] h-[0.2vh] bg-[#09090b] absolute bottom-[0.4px] left-[4.7vw]'></div>
+            </div>
+
+            <div className={`z-[5] absolute -bottom-65 left-0`}>
+                <Image
+                    src="/Mountains.webp"
+                    alt="footerbg"
+                    height={500}
+                    width={1700}
+                />
+
             </div>
 
             <div className='w-full h-full inset-0 absolute z-0'>

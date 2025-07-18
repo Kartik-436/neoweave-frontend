@@ -6,6 +6,7 @@ import { motion, useInView } from 'framer-motion';
 import DotGridBackground from '../ui/dotGridBackground';
 import DotGrid from './../ui/dotgridreactive';
 import StaggeredTextButton from '../StaggeredButton';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
