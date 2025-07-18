@@ -6,8 +6,8 @@ import DotGrid from '../ui/dotgridreactive';
 import FlipLink from '../NavBar/FlipLinks';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
+import StaggeredLink from './StaggeredLink';
 
-// This component wraps your text and applies a staggered animation to each letter.
 const AnimatedText = ({
     text,
     el: Wrapper = 'p',
@@ -16,7 +16,6 @@ const AnimatedText = ({
     stagger = 0.08
 }) => {
     const ref = useRef(null);
-    // MODIFICATION: Removed `once: true` to allow the animation to repeat.
     const isInView = useInView(ref, { margin: "-100px 0px" });
 
     const containerVariants = {
@@ -66,25 +65,22 @@ const AnimatedText = ({
 };
 
 const FooterColumn = ({ title, links }) => {
-    // Variants for the column itself to fade in.
     const columnVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0 },
     };
 
-    // Variants for the list to stagger its children (the links).
     const listVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.06, // Stagger for links within a column
-                delayChildren: 0.2, // Delay after the title appears
+                staggerChildren: 0.06,
+                delayChildren: 0.2,
             },
         },
     };
 
-    // Variants for each link item.
     const itemVariants = {
         hidden: { opacity: 0, x: -10 },
         visible: { opacity: 1, x: 0 },
@@ -106,9 +102,7 @@ const FooterColumn = ({ title, links }) => {
             >
                 {links.map((link) => (
                     <motion.li key={link.name} variants={itemVariants}>
-                        <a href={link.href || '#'} className="text-gray-700 transition-colors duration-300 hover:underline hover:text-black">
-                            {link.name}
-                        </a>
+                        <StaggeredLink title={link.name} href={link.href} />
                     </motion.li>
                 ))}
             </motion.ul>
@@ -120,48 +114,45 @@ const FooterColumn = ({ title, links }) => {
 const Footer = () => {
     const sections = {
         Product: [
-            { name: 'Dashboard' },
-            { name: 'Contributor Profile' },
-            { name: 'Projects' },
-            { name: 'Rewards' },
-            { name: 'Contribution Requests' },
-            { name: 'My Projects' },
-            { name: 'Issues' },
+            { name: 'Dashboard', href: '#' },
+            { name: 'Contributor Profile', href: '#' },
+            { name: 'Projects', href: '#' },
+            { name: 'Rewards', href: '#' },
+            { name: 'Contribution Requests', href: '#' },
+            { name: 'My Projects', href: '#' },
+            { name: 'Issues', href: '#' },
         ],
         Resources: [
-            { name: 'Docs' },
-            { name: 'FAQs' },
-            { name: 'Pricing' },
+            { name: 'Docs', href: '#' },
+            { name: 'FAQs', href: '#' },
+            { name: 'Pricing', href: '#' },
         ],
         Company: [
-            { name: 'About Us' },
-            { name: 'LinkedIn' },
-            { name: 'Twitter' },
-            { name: 'Contact Us' },
+            { name: 'About Us', href: '#' },
+            { name: 'LinkedIn', href: '#' },
+            { name: 'Twitter', href: '#' },
+            { name: 'Contact Us', href: '#' },
         ],
         Developers: [
-            { name: 'Developer GitHubs' },
-            { name: 'Developer Twitters' },
-            { name: 'Developer LinkedIn' },
+            { name: 'Developer GitHubs', href: '#' },
+            { name: 'Developer Twitters', href: '#' },
+            { name: 'Developer LinkedIn', href: '#' },
         ],
         Content: [
-            { name: 'Terms of Use' },
-            { name: 'Privacy Policy' },
+            { name: 'Terms of Use', href: '#' },
+            { name: 'Privacy Policy', href: '#' },
         ]
     };
 
     const ref = useRef(null);
-    // MODIFICATION: Removed `once: true` to allow the animation to repeat.
     const isInView = useInView(ref, { margin: "-150px 0px" });
 
-    // Variants to control the staggering of the columns.
     const gridContainerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
-                // This is where you configure the column-by-column stagger.
-                staggerChildren: 0.15, // Adjust this value for faster/slower column animation
+                staggerChildren: 0.15,
             },
         },
     };
@@ -172,12 +163,11 @@ const Footer = () => {
             <div className='w-full h-full'>
                 <div className='w-[90vw] md:h-[0.15vh] h-[0.2vh] bg-[#09090b] absolute top-[0.4px] left-[4.7vw]'></div>
             </div>
-            <div className="flex">
-                <div className='w-full px-8 pt-9 pb-24 md:w-[70vw] md:pl-32'>
-                    {/* --- THIS IS THE ANIMATED GRID CONTAINER --- */}
+            <div className="flex z-50">
+                <div className='w-full px-8 pt-9 pb-24 md:w-[70vw] md:pl-32 z-50'>
                     <motion.div
                         ref={ref}
-                        className="grid grid-cols-2 gap-12 sm:grid-cols-3 lg:grid-cols-5"
+                        className="grid grid-cols-2 gap-12 sm:grid-cols-3 lg:grid-cols-5 z-50"
                         variants={gridContainerVariants}
                         initial="hidden"
                         animate={isInView ? "visible" : "hidden"}
