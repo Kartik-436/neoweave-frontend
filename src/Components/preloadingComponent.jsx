@@ -9,22 +9,22 @@ import { useThemeChange } from './End/ThemeChangeContext';
 const PreloadingElem = () => {
     const { isLoaded } = useThemeChange();
 
-    
+
     const preloaderRef = useRef(null);
     const waterWaveRef = useRef(null);
     const odometerRef = useRef(null);
 
     useEffect(() => {
-        
+
         if (gsap && preloaderRef.current && waterWaveRef.current && odometerRef.current) {
 
-            
+
             if (isLoaded) {
-                
+
                 const tl = gsap.timeline({
                     onComplete: () => {
-                        
-                        
+
+
                         if (preloaderRef.current) {
                             preloaderRef.current.style.display = 'none';
                         }
@@ -32,27 +32,27 @@ const PreloadingElem = () => {
                 });
 
                 tl
-                    
+
                     .to(odometerRef.current, {
                         duration: 0.5,
                         opacity: 0,
                         ease: 'power2.in',
                     })
-                    
+
                     .to(waterWaveRef.current, {
                         duration: 1.2,
                         scale: 3,
                         ease: 'power3.inOut',
-                    }, '-=0.5') 
-                    
+                    }, '-=0.5')
+
                     .to(preloaderRef.current, {
                         duration: 1,
                         opacity: 0,
                         ease: 'expo.inOut',
-                    }, '-=0.7s'); 
+                    }, '-=1');
             }
         }
-    }, [isLoaded]); 
+    }, [isLoaded]);
 
     return (
         <div ref={preloaderRef} className='z-[9999999] flex flex-col min-w-screen w-full min-h-screen items-center py-[20vh] bg-[#111] fixed top-0 left-0'>
