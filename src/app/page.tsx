@@ -9,34 +9,41 @@ import BountiesSection from '@/Components/Bounties/BountiesSection';
 import NavBar3 from '@/Components/NavBar/NavBar3';
 import MaskedPage from "@/Components/Home/PortalReveal";
 import Footer from "@/Components/Footer/Footerpage";
-import { ThemeProvider } from '@/Components/End/ThemeChangeContext';
-import { ParticleTextEffect } from "../Components/ui/PreloadingPage";
-import CustomCursorMain from './../Components/Cursor/CustomCursorMain';
+import { ThemeProvider, useThemeChange } from '@/Components/End/ThemeChangeContext';
 import CustomCursor from './../Components/Cursor/Cursor';
-import {CursorProvider} from './../Components/Cursor/CursorContext';
+import { CursorProvider } from './../Components/Cursor/CursorContext';
+import PreloadingElem from './../Components/preloadingComponent';
 
 export default function Home() {
   return (
     <SmoothScroll>
       <ThemeProvider>
         <CursorProvider>
-          <div id="CompleteHomePage" className="bg-[#09090b] w-full min-h-screen overflow-hidden relative">
-            {/* <ParticleTextEffect /> */}
-            {/* <CustomCursorMain /> */}
-            <CustomCursor />
-
-            <NavBar3 />
-            <MaskedPage />
-            <BountiesSection />
-            <WhyChoosePage />
-            <PricingPage />
-            <TestimonialsPage />
-            <LastPortal />
-            <FinalPage />
-            <Footer />
-          </div>
+          <HomeElems />
         </CursorProvider>
       </ThemeProvider>
     </SmoothScroll >
+  )
+}
+
+const HomeElems = () => {
+  const { isLoaded } = useThemeChange();
+
+  return (
+    <div id="CompleteHomePage" className="bg-[#09090b] w-full min-h-screen overflow-hidden relative">
+      <CustomCursor />
+
+      <PreloadingElem />
+
+      <NavBar3 />
+      <MaskedPage />
+      <BountiesSection />
+      <WhyChoosePage />
+      <PricingPage />
+      <TestimonialsPage />
+      <LastPortal />
+      <FinalPage />
+      <Footer />
+    </div>
   )
 }
